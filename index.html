@@ -8,53 +8,46 @@
 <meta name="theme-color" content="#0057D9">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f2f2f2;padding-bottom:90px}
-.top{text-align:center;background:#e9e9e9;padding:20px 10px 15px}
-.logo{font-size:32px;font-weight:900;color:#0057D9;line-height:1}
-.logo span{color:#00A651}
-.logo small{display:block;font-size:13px;color:#0057D9;letter-spacing:2px;font-weight:700}
-.top h1{font-size:22px;margin:15px 0}
-.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px 0}
-.nav a,.nav button{padding:10px 18px;border:2px solid #0057D9;border-radius:30px;background:#fff;color:#0057D9;font-weight:bold;text-decoration:none;font-size:15px;cursor:pointer}
-.nav a.active,.nav button.active{background:#0057D9;color:#fff}
-.searchWrap{padding:15px}
-#searchInput{width:100%;padding:16px;border:1px solid #ddd;border-radius:14px;font-size:16px;outline:none;background:#fff}
-#searchInput:focus{border-color:#0057D9}
-#noResult{display:none;text-align:center;padding:20px;color:#666;font-weight:bold}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
-.big{border-radius:18px;padding:20px;color:#fff;text-align:center;min-height:130px;display:flex;flex-direction:column;justify-content:center}
-.big b{font-size:19px}
-.big span{font-size:17px;opacity:.9}
-.blue{background:#0046B8}
-.green{background:#00A651}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:14px 12px;white-space:nowrap;scrollbar-width:none}
+body{background:#E8E8E8;padding-bottom:110px}
+.top{background:#E8E8E8;text-align:center;padding:20px 10px 10px}
+.logo{font-size:42px;font-weight:900;color:#0057D9;line-height:.9}
+.logo small{display:block;font-size:18px;letter-spacing:3px;margin-top:4px}
+.top h1{font-size:30px;margin:18px 0 14px;font-weight:900}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.nav a{padding:12px 22px;border:2.5px solid #0057D9;border-radius:30px;background:#fff;color:#0057D9;font-weight:800;text-decoration:none;font-size:18px}
+.nav a.active{background:#0057D9;color:#fff}
+.wrap{padding:18px 14px}
+#searchInput{width:100%;padding:16px 18px;border:2px solid #0057D9;border-radius:18px;font-size:18px;background:#fff;outline:none}
+#noResult{display:none;text-align:center;padding:16px;font-weight:bold;color:#333;background:#FFF3CD;border-radius:12px;margin-top:12px}
+.bigWrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.big{border-radius:22px;padding:26px 10px;color:#fff;text-align:center;min-height:150px;display:flex;flex-direction:column;justify-content:center;cursor:pointer}
+.big b{font-size:23px;line-height:1.1}
+.big span{font-size:20px;opacity:.85;margin-top:4px}
+.blue{background:#0046B8}.green{background:#00A651}
+.chips{display:flex;gap:10px;overflow-x:auto;padding:6px 0 14px;white-space:nowrap;scrollbar-width:none}
 .chips::-webkit-scrollbar{display:none}
-.chip{padding:10px 18px;border:2px solid #0057D9;border-radius:30px;background:#fff;color:#0057D9;font-weight:bold;flex-shrink:0;cursor:pointer}
+.chip{padding:12px 20px;border:2.5px solid #0057D9;border-radius:30px;background:#fff;color:#0057D9;font-weight:800;font-size:17px;flex-shrink:0;cursor:pointer}
 .chip.active{background:#0057D9;color:#fff}
-.section{padding:0 12px}
-.section h2{font-size:24px;margin:6px 0 12px}
-.service{background:#fff;border-radius:16px;padding:16px;display:flex;gap:10px;align-items:flex-start;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.service .emoji{font-size:38px}
-.service h3{font-size:17px;line-height:1.2}
-.service p{font-size:13px;color:#666;margin:4px 0}
-.price{color:#00A651;font-weight:900;font-size:16px}
-.orderBtn{margin-top:8px;background:#0057D9;color:#fff;border:0;padding:8px 14px;border-radius:20px;font-weight:bold;cursor:pointer}
-.bottomNav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:14px 0;border-top:1px solid #ddd;z-index:998}
-.bottomNav a{color:#333;text-decoration:none;font-size:17px}
-.whatsapp{position:fixed;bottom:78px;right:12px;background:#25D366;color:#fff;padding:12px 16px;border-radius:50px;font-weight:bold;text-decoration:none;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;font-size:14px}
+h2{font-size:29px;margin:6px 0 14px;font-weight:900}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.service{background:#F5F5F5;border-radius:20px;padding:16px 12px;display:flex;gap:10px;align-items:flex-start;min-height:170px}
+.service .emoji{font-size:42px;flex-shrink:0}
+.service h3{font-size:20px;line-height:1.1;font-weight:900}
+.service p{font-size:14px;color:#666;margin:6px 0;line-height:1.3}
+.price{color:#00A651;font-weight:900;font-size:17px;margin:4px 0}
+.orderBtn{background:#0057D9;color:#fff;border:0;padding:9px 14px;border-radius:20px;font-weight:800;font-size:14px;cursor:pointer;margin-top:4px}
+.whatsapp{position:fixed;bottom:85px;right:12px;background:#25D366;color:#fff;padding:13px 16px;border-radius:50px;font-weight:900;text-decoration:none;z-index:999;box-shadow:0 4px 12px rgba(0,0,0,.35);display:flex;align-items:center;gap:6px;font-size:15px}
+.bottomNav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:16px 0;border-top:1px solid #ddd;z-index:998}
+.bottomNav a{color:#333;text-decoration:none;font-size:18px}
 .hidden{display:none!important}
-.page{padding:12px}
-.page h2{margin-bottom:10px}
-.box{background:#fff;padding:16px;border-radius:14px;margin-bottom:12px;line-height:1.6}
+.page{padding:14px}.box{background:#fff;padding:16px;border-radius:14px;line-height:1.6;margin-bottom:12px}
 input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px;font-size:15px}
-.btn{width:100%;padding:14px;background:#0057D9;color:#fff;border:0;border-radius:10px;font-weight:bold;font-size:16px;cursor:pointer}
-.btn2{background:#00A651}
+.btn{width:100%;padding:14px;background:#0057D9;color:#fff;border:0;border-radius:10px;font-weight:bold;font-size:16px}
 </style>
 </head>
 <body>
-
 <div class="top">
-<div class="logo">💻 CYBERKAZI <small>Kazi Yote Mtandaoni</small></div>
+<div class="logo">💻 CYBERKAZI<small>Kazi Yote Mtandaoni</small></div>
 <h1>Kazi Yote, Mtandaoni</h1>
 <div class="nav">
 <a href="#" class="active" onclick="showPage('home',this)">Home</a>
@@ -66,19 +59,16 @@ input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd
 </div>
 </div>
 
-<!-- HOME PAGE -->
-<div id="page-home">
-<div class="searchWrap">
+<div id="page-home" class="wrap">
 <input id="searchInput" onkeyup="doSearch()" placeholder="Search KRA, Passport, HELB...">
-</div>
 <div id="noResult">No service found for "<span id="noText"></span>" - Tap WhatsApp below to ask us.</div>
 
-<div class="cards">
+<div class="bigWrap">
 <div class="big blue" onclick="filterCat('all')"><b>e-Cyber Services</b><span>75 Services</span></div>
 <div class="big green" onclick="filterCat('school')"><b>CBE School Work</b><span>Grade 1-9</span></div>
 </div>
 
-<div class="chips" id="chips">
+<div class="chips">
 <button class="chip active" onclick="filterCat('all',this)">All</button>
 <button class="chip" onclick="filterCat('kra',this)">KRA</button>
 <button class="chip" onclick="filterCat('tsc',this)">TSC</button>
@@ -87,15 +77,52 @@ input,select,textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd
 <button class="chip" onclick="filterCat('birth',this)">Birth</button>
 <button class="chip" onclick="filterCat('school',this)">School</button>
 <button class="chip" onclick="filterCat('design',this)">Design</button>
+<button class="chip" onclick="filterCat('helb',this)">HELB</button>
+<button class="chip" onclick="filterCat('ecitizen',this)">eCitizen</button>
 </div>
 
-<div class="section">
 <h2>Popular Services</h2>
-<div class="cards" id="serviceList">
+<div class="grid" id="serviceList">
 
-<div class="service" data-cat="design" data-name="logo designing logo">
-<div class="emoji">🎨</div><div><h3>Logo Designing</h3><p>Professional logo for business</p><div class="price">KSh 800</div><button class="orderBtn" onclick="order('Logo Designing - KSh 800')">Order Now</button></div>
+<div class="service" data-cat="design" data-name="logo designing logo business logo"><div class="emoji">🎨</div><div><h3>Logo Designing</h3><p>Professional logo for business</p><div class="price">KSh 800</div><button class="orderBtn" onclick="order('Logo Designing - KSh 800')">Order Now</button></div></div>
+<div class="service" data-cat="design" data-name="poster flyer banner poster church event"><div class="emoji">🖼️</div><div><h3>Poster / Flyer / Banner</h3><p>For business, church, events</p><div class="price">KSh 400</div><button class="orderBtn" onclick="order('Poster / Flyer - KSh 400')">Order Now</button></div></div>
+<div class="service" data-cat="design" data-name="printing photocopy print scanning lamination"><div class="emoji">🖨️</div><div><h3>Printing / Photocopy</h3><p>Printing, scanning, lamination</p><div class="price">KSh 50</div><button class="orderBtn" onclick="order('Printing - KSh 50')">Order Now</button></div></div>
+<div class="service" data-cat="design" data-name="pdf editing pdf edit merge compress"><div class="emoji">📄</div><div><h3>PDF Editing</h3><p>Edit, merge, compress PDF</p><div class="price">KSh 200</div><button class="orderBtn" onclick="order('PDF Editing - KSh 200')">Order Now</button></div></div>
+<div class="service" data-cat="kra" data-name="kra pin kra application pin"><div class="emoji">🧾</div><div><h3>KRA PIN Application</h3><p>New KRA PIN in 10 mins</p><div class="price">KSh 200</div><button class="orderBtn" onclick="order('KRA PIN - KSh 200')">Order Now</button></div></div>
+<div class="service" data-cat="kra" data-name="kra returns tax return nil return kra"><div class="emoji">📊</div><div><h3>KRA Returns</h3><p>Nil & employed returns</p><div class="price">KSh 300</div><button class="orderBtn" onclick="order('KRA Returns - KSh 300')">Order Now</button></div></div>
+<div class="service" data-cat="passport" data-name="passport application passport renewal ecitizen"><div class="emoji">🛂</div><div><h3>Passport Application</h3><p>New / Renewal eCitizen</p><div class="price">KSh 500</div><button class="orderBtn" onclick="order('Passport - KSh 500')">Order Now</button></div></div>
+<div class="service" data-cat="birth" data-name="birth certificate birth cert replacement"><div class="emoji">👶</div><div><h3>Birth Certificate</h3><p>New & replacement</p><div class="price">KSh 500</div><button class="orderBtn" onclick="order('Birth Certificate - KSh 500')">Order Now</button></div></div>
+<div class="service" data-cat="tsc" data-name="tsc number teacher registration tsc"><div class="emoji">👩‍🏫</div><div><h3>TSC Number</h3><p>Teacher registration</p><div class="price">KSh 500</div><button class="orderBtn" onclick="order('TSC Number - KSh 500')">Order Now</button></div></div>
+<div class="service" data-cat="business" data-name="business registration business name company"><div class="emoji">🏢</div><div><h3>Business Registration</h3><p>Business Name / Company</p><div class="price">KSh 1000</div><button class="orderBtn" onclick="order('Business Registration - KSh 1000')">Order Now</button></div></div>
+<div class="service" data-cat="school" data-name="cbe school work grade homework assignment cbc grade 1 9"><div class="emoji">📚</div><div><h3>CBE School Work</h3><p>Grade 1-9 Homework, Projects</p><div class="price">KSh 200</div><button class="orderBtn" onclick="order('CBE School Work - KSh 200')">Order Now</button></div></div>
+<div class="service" data-cat="helb" data-name="helb application loan helb first subsequent"><div class="emoji">🎓</div><div><h3>HELB Application</h3><p>First time / Subsequent</p><div class="price">KSh 300</div><button class="orderBtn" onclick="order('HELB - KSh 300')">Order Now</button></div></div>
+<div class="service" data-cat="ecitizen" data-name="ecitizen good conduct certificate police clearance"><div class="emoji">📜</div><div><h3>Good Conduct</h3><p>Police clearance eCitizen</p><div class="price">KSh 500</div><button class="orderBtn" onclick="order('Good Conduct - KSh 500')">Order Now</button></div></div>
+<div class="service" data-cat="ecitizen" data-name="ecitizen driving licence dl driving license renewal"><div class="emoji">🚗</div><div><h3>Driving Licence</h3><p>New / Renewal NTSA</p><div class="price">KSh 500</div><button class="orderBtn" onclick="order('Driving Licence - KSh 500')">Order Now</button></div></div>
+<div class="service" data-cat="ecitizen" data-name="ecitizen kra tsc nhif nssf sha shif"><div class="emoji">🏥</div><div><h3>SHA / SHIF Registration</h3><p>New SHA, dependants</p><div class="price">KSh 200</div><button class="orderBtn" onclick="order('SHA Registration - KSh 200')">Order Now</button></div></div>
+<div class="service" data-cat="business" data-name="cv resume cv writing job application"><div class="emoji">📝</div><div><h3>CV / Resume Writing</h3><p>Professional CV + Cover Letter</p><div class="price">KSh 400</div><button class="orderBtn" onclick="order('CV Writing - KSh 400')">Order Now</button></div></div>
+
+</div>
 </div>
 
-<div class="service" data-cat="design" data-name="poster flyer banner poster">
-<div class="emoji">🖼️</div><div><h3>Poster / Flyer / Banner</h3><p>For business, church, events</p><div class="price">KSh 400</div><button class="order
+<div id="page-about" class="page hidden"><h2>About CyberKazi</h2><div class="box">CyberKazi helps you do all cyber work online. KRA, Passport, HELB, TSC, Business, Printing, Design and School Work. Order online, we do it for you, you get it on WhatsApp. Kazi Yote, Mtandaoni.</div></div>
+<div id="page-how" class="page hidden"><h2>How It Works</h2><div class="box">1. Search service<br>2. Tap Order Now<br>3. Pay via M-Pesa<br>4. We do the work<br>5. Receive on WhatsApp</div></div>
+<div id="page-help" class="page hidden"><h2>Help</h2><div class="box">Need help? Tap WhatsApp button below or call us. We reply fast.</div></div>
+<div id="page-orders" class="page hidden"><h2>My Orders</h2><div class="box" id="ordersBox">No orders yet.</div></div>
+<div id="page-profile" class="page hidden"><h2>Profile</h2><div class="box"><label>Your Name</label><input id="pName" placeholder="e.g. Kevin"><label>Your Phone</label><input id="pPhone" placeholder="07..."><button class="btn" onclick="saveProfile()">Save Profile</button></div></div>
+
+<!-- CHANGE ONLY YOUR NUMBER HERE: 254700000000 -> your number e.g 254712345678, and 0700 000 000 -> 0712 345 678 -->
+<a class="whatsapp" href="https://wa.me/254700000000?text=Hello%20CyberKazi%2C%20I%20need%20help">💬 WhatsApp 0700 000 000</a>
+
+<div class="bottomNav"><a href="#" onclick="showPage('home',this)">Home</a><a href="#" onclick="showPage('home',this)">Services</a><a href="#" onclick="showPage('orders',this)">Orders</a><a href="#" onclick="showPage('profile',this)">Profile</a></div>
+
+<script>
+let orders=JSON.parse(localStorage.getItem('cyberOrders')||'[]');
+function showPage(id,el){document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden'));document.getElementById('page-'+id).classList.remove('hidden');document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));if(el)el.classList.add('active');window.scrollTo(0,0);if(id=='orders')showOrders()}
+function doSearch(){let q=document.getElementById('searchInput').value.toLowerCase().trim();let cards=document.querySelectorAll('#serviceList .service');let count=0;cards.forEach(c=>{let name=c.getAttribute('data-name')+' '+c.innerText.toLowerCase();if(name.includes(q)){c.style.display='flex';count++}else{c.style.display='none'}});let no=document.getElementById('noResult');if(count==0&&q.length>0){no.style.display='block';document.getElementById('noText').innerText=q}else{no.style.display='none'}}
+function filterCat(cat,el){document.querySelectorAll('.chip').forEach(ch=>ch.classList.remove('active'));if(el)el.classList.add('active');document.querySelectorAll('#serviceList .service').forEach(c=>{c.style.display=(cat=='all'||c.getAttribute('data-cat')==cat)?'flex':'none'});document.getElementById('searchInput').value='';document.getElementById('noResult').style.display='none'}
+function order(name){orders.push({name:name,date:new Date().toLocaleString()});localStorage.setItem('cyberOrders',JSON.stringify(orders));window.open('https://wa.me/254700000000?text='+encodeURIComponent('Hello CyberKazi, I want to order: '+name),'_blank')}
+function showOrders(){let box=document.getElementById('ordersBox');if(orders.length==0){box.innerHTML='No orders yet.';return}box.innerHTML=orders.map(o=>'<div style="border-bottom:1px solid #eee;padding:8px 0"><b>'+o.name+'</b><br><small>'+o.date+'</small></div>').join('')}
+function saveProfile(){localStorage.setItem('cyberName',document.getElementById('pName').value);localStorage.setItem('cyberPhone',document.getElementById('pPhone').value);alert('Profile saved!')}
+</script>
+</body>
+  </html>
