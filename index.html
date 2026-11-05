@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberKazi - Kazi Yote, Mtandaoni</title>
+<style>
+*{box-sizing:border-box;font-family:Arial,sans-serif;margin:0;padding:0}
+body{background:#f5f7fb;color:#111;padding-bottom:70px}
+header{background:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+header h1{color:#0057D9;font-size:32px}
+header p{font-size:13px;font-weight:bold}
+.topbar{display:flex;gap:10px;justify-content:center;margin-top:10px}
+.topbar button{padding:8px 14px;border-radius:20px;border:1px solid #0057D9;background:#fff;color:#0057D9;font-weight:bold}
+.search{padding:15px}.search input{width:100%;padding:14px;border-radius:12px;border:1px solid #ddd}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px}
+.two div{padding:18px;border-radius:14px;color:#fff;text-align:center;font-weight:bold}
+.blue{background:#0057D9}.green{background:#00A651}
+h2{padding:18px 15px 10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 15px}
+.card{background:#fff;padding:14px;border-radius:14px;cursor:pointer}
+.card span{color:#00A651;font-weight:bold;display:block;margin-top:8px}
+.how{background:#D6E8FF;margin:15px;border-radius:20px;padding:18px;text-align:center}
+.hidden{display:none!important}.box{background:#fff;margin:15px;padding:18px;border-radius:16px}
+.box input,.box select,.box textarea{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:10px}
+.btn{width:100%;padding:14px;background:#0057D9;color:#fff;border:0;border-radius:12px;font-weight:bold;margin-top:8px}
+.btn-green{background:#00A651}.order{border:1px solid #eee;padding:12px;border-radius:12px;margin-bottom:10px}
+.badge{display:inline-block;padding:4px 10px;border-radius:20px;background:#FFF3CD;font-weight:bold;font-size:12px}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:12px;border-top:1px solid #eee}
+.nav div{text-align:center;font-size:12px;color:#888}
+</style>
+</head>
+<body>
+<header><h1>CYBERKAZI</h1><p>Kazi Yote, Mtandaoni. All Cyber Services, CBE School Work, Done Online</p><div class="topbar"><button onclick="showHome()">Home</button><button id="loginBtn" onclick="showLogin()">Login / Sign Up</button><button id="logoutBtn" class="hidden" onclick="logout()">Logout</button></div></header>
+<div id="homePage"><div class="search"><input id="searchInput" placeholder="What work do you want done?" oninput="renderServices()"></div><div class="two"><div class="blue" onclick="filterCat('cyber')">e-Cyber Services</div><div class="green" onclick="filterCat('school')">CBE School Work</div></div><h2>Popular Services</h2><div class="grid" id="servicesGrid"></div><div class="how"><h3>How It Works</h3><p>1. Upload &nbsp; 2. We Do It &nbsp; 3. Pay with M-Pesa to Download</p></div></div>
+<div id="loginPage" class="box hidden"><h2>Login / Create Account</h2><input id="uName" placeholder="Your Full Name"><input id="uPhone" placeholder="Phone e.g 0769..."><input id="uPass" type="password" placeholder="Create Password"><button class="btn" onclick="doLogin()">Continue to CyberKazi</button><p style="font-size:12px;margin-top:10px">Admin: Name=Admin, Phone=0769000000, Pass=admin123</p></div>
+<div id="orderPage" class="box hidden"><h2 id="orderTitle">Order</h2><p id="orderPrice" style="color:#00A651;font-weight:bold"></p><select id="oGrade"><option>Grade 1</option><option>Grade 2</option><option>Grade 3</option><option>Grade 4</option><option>Grade 5</option><option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option><option>Form 1-4</option><option>Other</option></select><textarea id="oDetails" placeholder="Describe your work..."></textarea><input type="file"><button class="btn btn-green" onclick="placeOrder()">Place Order</button><button class="btn" style="background:#eee;color:#111" onclick="showHome()">Back</button></div>
+<div id="ordersPage" class="box hidden"><h2>My Orders</h2><div id="ordersList"></div><div id="adminPanel" class="hidden"><h3>Admin - All Orders</h3><div id="adminList"></div></div></div>
+<div class="nav"><div onclick="showHome()">Home</div><div onclick="showLogin()">Profile</div><div onclick="showOrders()">Orders</div><div onclick="alert('WhatsApp CyberKazi')">Help</div></div>
+<script>
+const services=[{id:1,name:"KRA PIN Application",price:250,cat:"cyber",icon:"🪪"},{id:2,name:"CBE Homework Grade 1-9",price:200,cat:"school",icon:"📚"},{id:3,name:"CV + Cover Letter",price:400,cat:"cyber",icon:"📄"},{id:4,name:"HELB Application",price:400,cat:"cyber",icon:"🎓"},{id:5,name:"Good Conduct",price:500,cat:"cyber",icon:"🛡️"},{id:6,name:"Logo Designing",price:800,cat:"cyber",icon:"🎨"}];
+let currentUser=JSON.parse(localStorage.getItem('ck_user')||'null');let orders=JSON.parse(localStorage.getItem('ck_orders')||'[]');let selected=null;let filter="all";
+function renderServices(){let list=services.filter(s=>{if(filter!=='all'&&s.cat!==filter)return false;let q=document.getElementById('searchInput').value.toLowerCase();if(q&&!s.name.toLowerCase().includes(q))return false;return true});document.getElementById('servicesGrid').innerHTML=list.map(s=>`<div class="card" onclick="openOrder(${s.id})"><div style="font-size:24px">${s.icon}</div><b>${s.name}</b><span>KSh ${s.price}</span></div>`).join('')}
+function filterCat(c){filter=c;renderServices()}
+function showHome(){hideAll();document.getElementById('homePage').classList.remove('hidden')}
+function showLogin(){hideAll();document.getElementById('loginPage').classList.remove('hidden')}
+function showOrders(){hideAll();document.getElementById('ordersPage').classList.remove('hidden');if(!currentUser){alert('Please login first');showLogin();return}let my=orders.filter(o=>o.phone===currentUser.phone);document.getElementById('ordersList').innerHTML=my.length?my.map(o=>`<div class="order"><b>${o.service} - KSh ${o.price}</b><br><small>${o.details} | ${o.grade}</small><br><span class="badge">${o.status}</span><br>${o.status==='Ready'?`<button class="btn btn-green" onclick="payOrder('${o.id}')">Pay with M-Pesa - KSh ${o.price}</button>`:'<small>We are working on it.</small>'}</div>`).join(''):'<p>No orders yet.</p>';if(currentUser.phone==='0769000000'){document.getElementById('adminPanel').classList.remove('hidden');document.getElementById('adminList').innerHTML=orders.map(o=>`<div class="order"><b>${o.service} - ${o.phone}</b><br><small>${o.details}</small><br><span class="badge">${o.status}</span><br><button onclick="markReady('${o.id}')">Mark as Ready</button></div>`).join('')}}
+function hideAll(){['homePage','loginPage','orderPage','ordersPage'].forEach(id=>document.getElementById(id).classList.add('hidden'))}
+function openOrder(id){if(!currentUser){alert('Please Login first');showLogin();return}selected=services.find(s=>s.id===id);hideAll();document.getElementById('orderPage').classList.remove('hidden');document.getElementById('orderTitle').innerText=selected.name;document.getElementById('orderPrice').innerText='Price: KSh '+selected.price}
+function doLogin(){let n=document.getElementById('uName').value,p=document.getElementById('uPhone').value,pw=document.getElementById('uPass').value;if(!n||!p||!pw){alert('Fill all');return}currentUser={name:n,phone:p};localStorage.setItem('ck_user',JSON.stringify(currentUser));alert('Welcome '+n);showHome()}
+function logout(){localStorage.removeItem('ck_user');location.reload()}
+function placeOrder(){let o={id:Date.now().toString(),service:selected.name,price:selected.price,grade:document.getElementById('oGrade').value,details:document.getElementById('oDetails').value||'No details',phone:currentUser.phone,name:currentUser.name,status:'Received'};orders.push(o);localStorage.setItem('ck_orders',JSON.stringify(orders));alert('Order Received!');showOrders()}
+function markReady(id){let o=orders.find(x=>x.id===id);o.status='Ready';localStorage.setItem('ck_orders',JSON.stringify(orders));showOrders()}
+function payOrder(id){let o=orders.find(x=>x.id===id);alert('Pay KSh '+o.price+' via M-Pesa to 0769...')}
+if(currentUser){document.getElementById('loginBtn').classList.add('hidden');document.getElementById('logoutBtn').classList.remove('hidden')}
+renderServices();
+</script>
+</body>
+  </html>
