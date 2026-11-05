@@ -28,11 +28,12 @@ h2{padding:18px 0 10px;color:#0A2A6B}.grid{display:grid;grid-template-columns:1f
 .btn{width:100%;padding:14px;background:#0057D9;color:#fff;border:0;border-radius:12px;font-weight:bold;margin-top:10px;display:block;text-align:center;cursor:pointer}
 .btn2{background:#00A651}.btn-back{background:#eee;color:#111}
 input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin-top:10px}
+label{font-size:13px;font-weight:bold;display:block;margin-top:14px;color:#333}
 .terms{font-size:12px;background:#FFF3CD;padding:12px;border-radius:10px;margin-top:12px;line-height:1.6}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:12px;border-top:1px solid #eee}
 .bottom a{text-align:center;font-size:12px;color:#888;text-decoration:none;cursor:pointer}
-.bottom a.active{color:#0057D9;font-weight:bold}
 .selected-card{background:#E8FFF0;border:2px solid #00A651;padding:16px;border-radius:14px;display:flex;gap:10px;align-items:center}
+.note{background:#E8F0FF;padding:12px;border-radius:10px;font-size:13px;margin-top:10px}
 </style>
 </head>
 <body>
@@ -73,23 +74,18 @@ input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radiu
 <div class="box"><h2>Help</h2><p><b>How do I pay?</b><br>You pay with M-Pesa after your work is ready.</p><br><p><b>How long does it take?</b><br>Less than 10 minutes.</p><br><p><b>Is my document private?</b><br>Yes. Only you and CyberKazi can see your order.</p><br><p><b>For orders, payments, or problems</b><br>Use the phone number you used when ordering. CyberKazi is always available.</p></div>
 </div>
 
-<!-- ORDERS - STEP 1 CHOOSE -->
+<!-- ORDERS - CHOOSE -->
 <div id="page-orders" class="page">
-<div class="box"><h2>Choose A Service</h2><p style="font-size:14px;color:#555">Tap any service to continue to details:</p></div>
+<div class="box"><h2>Choose A Service</h2><p style="font-size:14px;color:#555">Tap any service to continue to its form:</p></div>
 <div class="grid" id="orderGrid"></div>
 </div>
 
-<!-- ORDER DETAILS - STEP 2 FORM -->
+<!-- ORDER DETAILS - SMART FORM -->
 <div id="page-order-details" class="page">
 <button class="btn btn-back" onclick="showPage('orders')">← Back To Services</button>
-<div class="box"><h2>Your Order Details</h2><p style="font-size:14px;color:#555">You selected:</p><div id="chosenBox" class="selected-card" style="margin-top:10px"></div></div>
-<div class="box" id="otherInputBox" style="display:none"><h3>✍️ What work do you want?</h3><input id="otherServiceName" placeholder="e.g. Type my assignment, Apply for passport..."></div>
-<div class="box"><h3>Type Your Details</h3>
-<input id="custName" placeholder="Your Full Name">
-<input id="custPhone" placeholder="Your Phone Number e.g. 0712345678">
-<textarea id="custDesc" placeholder="Describe your work in detail... e.g. I need KRA PIN for job application"></textarea>
-<input id="custClass" placeholder="Class / Grade - If school work (Optional)">
-<p style="font-size:12px;color:#666;margin-top:10px">✅ We will do it in less than 10 minutes<br>✅ Pay after work is ready with M-Pesa</p>
+<div class="box"><h2 id="detailsTitle">Your Order Details</h2><div id="chosenBox" class="selected-card" style="margin-top:10px"></div><div id="serviceNote" class="note"></div></div>
+<div class="box"><h3>Fill This Form</h3><div id="dynamicForm"></div>
+<p style="font-size:12px;color:#666;margin-top:14px">✅ We will do it in less than 10 minutes<br>✅ Pay after work is ready with M-Pesa<br>✅ Your information is private</p>
 <button class="btn btn2" onclick="sendOrder()">Send Order →</button>
 </div>
 </div>
@@ -109,12 +105,22 @@ input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radiu
 <script>
 let selectedService=null;
 function showPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('nav a').forEach(e=>e.classList.remove('active'));let n=document.getElementById('nav-'+p);if(n)n.classList.add('active');window.scrollTo(0,0)}
-const services=[{name:"KRA PIN Application",price:250,icon:"🪪"},{name:"CBE Homework Grade 1-9",price:200,icon:"📚"},{name:"CV + Cover Letter",price:400,icon:"📄"},{name:"HELB Application",price:400,icon:"🎓"},{name:"Good Conduct",price:500,icon:"🛡️"},{name:"Logo Designing",price:800,icon:"🎨"},{name:"Other Service",price:0,icon:"✍️",other:true}];
-function renderServices(){let q=document.getElementById('searchInput').value.toLowerCase();let list=services.filter(s=>!q||s.name.toLowerCase().includes(q));document.getElementById('servicesGrid').innerHTML=list.map((s,i)=>`<div class="card" onclick="goToDetails(${services.indexOf(s)})"><div style="font-size:28px">${s.icon}</div><div><b>${s.name}</b><span>${s.price==0?'Write what you want':'KSh '+s.price}</span></div></div>`).join('')}
-function renderOrderGrid(){document.getElementById('orderGrid').innerHTML=services.map((s,i)=>`<div class="card" onclick="goToDetails(${i})"><div style="font-size:28px">${s.icon}</div><div><b>${s.name}</b><span>${s.price==0?'Write what you want':'KSh '+s.price}</span></div></div>`).join('')}
-function goToDetails(i){selectedService=services[i];document.getElementById('chosenBox').innerHTML=`<div style="font-size:30px">${selectedService.icon}</div><div><b>${selectedService.name}</b><br><span style="color:#00A651;font-weight:bold">${selectedService.price==0?'Price - We will tell you':'KSh '+selectedService.price}</span></div>`;document.getElementById('otherInputBox').style.display=selectedService.other?'block':'none';showPage('order-details')}
-function sendOrder(){let other=document.getElementById('otherServiceName').value;let name=document.getElementById('custName').value||"Customer";let finalSel=selectedService.other?(other? "Other Service: "+other:"Other Service"):selectedService.name;alert("Thank you "+name+"!\nOrder received: "+finalSel+"\nWe will do it in less than 10 minutes.");showPage('home')}
+
+const services=[
+{id:"kra",name:"KRA PIN Application",price:250,icon:"🪪",note:"For new KRA PIN or retrieving your PIN. Have your ID ready.",fields:[["Full Name","Your Full Name e.g. John Kamau"],["ID Number","ID Number e.g. 12345678"],["Date of Birth","Date of Birth e.g. 01/01/2000"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address e.g. john@gmail.com"]]},
+{id:"cbe",name:"CBE Homework Grade 1-9",price:200,icon:"📚",note:"For CBE homework, assignments and projects. Tell us the subject and class.",fields:[["Parent Name","Parent / Guardian Name"],["Learner Name","Learner Full Name"],["Grade / Class","Grade e.g. Grade 5"],["Subject","Subject e.g. Mathematics, English, Science"],["School Name","School Name"],["Phone Number","Phone Number e.g. 0712345678"],["Homework Details","Describe homework - What is the question?"]]},
+{id:"cv",name:"CV + Cover Letter",price:400,icon:"📄",note:"We will make a professional CV for you. Tell us your education and work.",fields:[["Full Name","Your Full Name"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address"],["Education Level","Education e.g. Form 4, Diploma, Degree"],["Work Experience","Work Experience - Where have you worked?"],["Job You Want","What job are you applying for?"]]},
+{id:"helb",name:"HELB Application",price:400,icon:"🎓",note:"For HELB first time or subsequent application. Have KCSE index and admission ready.",fields:[["Full Name","Full Name as on ID"],["ID Number","ID Number"],["KCSE Index Number","KCSE Index e.g. 12345678901 / Year"],["Institution Name","University / College Name"],["Admission Number","Admission Number"],["Course","Course e.g. BSc IT"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address"],["Parent / Guardian ID","Parent / Guardian ID Number"]]},
+{id:"good",name:"Good Conduct",price:500,icon:"🛡️",note:"For Certificate of Good Conduct application on eCitizen.",fields:[["Full Name","Full Name as on ID"],["ID Number","ID Number"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address"],["eCitizen Account","Do you have eCitizen? Yes / No"],["County","County e.g. Kisumu"]]},
+{id:"logo",name:"Logo Designing",price:800,icon:"🎨",note:"We design a beautiful logo for your business in less than 10 minutes.",fields:[["Business Name","Business / Brand Name"],["What Business Do You Do?","What does your business do?"],["Colours You Like","Colours you like e.g. Blue, Green"],["Phone Number","Phone Number e.g. 0712345678"],["Other Ideas","Any idea for your logo?"]]},
+{id:"other",name:"Other Service",price:0,icon:"✍️",note:"Write any other work you want us to do.",fields:[["What Work Do You Want?","e.g. Type my assignment, Apply for passport..."],["Your Full Name","Your Full Name"],["Phone Number","Phone Number e.g. 0712345678"],["Describe Your Work","Describe in detail what you want"]]}
+];
+
+function renderServices(){let q=document.getElementById('searchInput').value.toLowerCase();let list=services.filter(s=>!q||s.name.toLowerCase().includes(q));document.getElementById('servicesGrid').innerHTML=list.map(s=>`<div class="card" onclick="goToDetails('${s.id}')"><div style="font-size:28px">${s.icon}</div><div><b>${s.name}</b><span>${s.price==0?'Write what you want':'KSh '+s.price}</span></div></div>`).join('')}
+function renderOrderGrid(){document.getElementById('orderGrid').innerHTML=services.map(s=>`<div class="card" onclick="goToDetails('${s.id}')"><div style="font-size:28px">${s.icon}</div><div><b>${s.name}</b><span>${s.price==0?'Write what you want':'KSh '+s.price}</span></div></div>`).join('')}
+function goToDetails(id){selectedService=services.find(s=>s.id===id);document.getElementById('detailsTitle').innerText=selectedService.name;document.getElementById('chosenBox').innerHTML=`<div style="font-size:30px">${selectedService.icon}</div><div><b>${selectedService.name}</b><br><span style="color:#00A651;font-weight:bold">${selectedService.price==0?'Price - We will tell you':'KSh '+selectedService.price}</span></div>`;document.getElementById('serviceNote').innerHTML="ℹ️ "+selectedService.note;let html="";selectedService.fields.forEach(f=>{let isTextArea=f[0].toLowerCase().includes("describe")||f[0].toLowerCase().includes("details")||f[0].toLowerCase().includes("experience")||f[0].toLowerCase().includes("ideas");html+=`<label>${f[0]}</label>`+(isTextArea?`<textarea placeholder="${f[1]}"></textarea>`:`<input placeholder="${f[1]}">`)});document.getElementById('dynamicForm').innerHTML=html;showPage('order-details')}
+function sendOrder(){alert("Thank you!\nOrder received: "+selectedService.name+"\nWe will do it in less than 10 minutes.\nWe will call you on your phone number.");showPage('home')}
 renderServices();renderOrderGrid();
 </script>
 </body>
-  </html>
+                                                                                          </html>
