@@ -29,7 +29,7 @@ h2{padding:18px 15px 10px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:1
 .nav div{text-align:center;font-size:12px;color:#888}
 </style>
 </head>
-<body>
+<body> <img src="IMG-20261105-WA5230.jpg" style="width:180px; display:block; margin:10px auto;">
 <header><h1>CYBERKAZI</h1><p>Kazi Yote, Mtandaoni. All Cyber Services, CBE School Work, Done Online</p><div class="topbar"><button onclick="showHome()">Home</button><button id="loginBtn" onclick="showLogin()">Login / Sign Up</button><button id="logoutBtn" class="hidden" onclick="logout()">Logout</button></div></header>
 <div id="homePage"><div class="search"><input id="searchInput" placeholder="What work do you want done?" oninput="renderServices()"></div><div class="two"><div class="blue" onclick="filterCat('cyber')">e-Cyber Services</div><div class="green" onclick="filterCat('school')">CBE School Work</div></div><h2>Popular Services</h2><div class="grid" id="servicesGrid"></div><div class="how"><h3>How It Works</h3><p>1. Upload &nbsp; 2. We Do It &nbsp; 3. Pay with M-Pesa to Download</p></div></div>
 <div id="loginPage" class="box hidden"><h2>Login / Create Account</h2><input id="uName" placeholder="Your Full Name"><input id="uPhone" placeholder="Phone e.g 0769..."><input id="uPass" type="password" placeholder="Create Password"><button class="btn" onclick="doLogin()">Continue to CyberKazi</button><p style="font-size:12px;margin-top:10px">Admin: Name=Admin, Phone=0769000000, Pass=admin123</p></div>
