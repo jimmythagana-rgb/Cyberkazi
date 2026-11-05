@@ -7,146 +7,146 @@
 <style>
 *{box-sizing:border-box;font-family:Arial,sans-serif;margin:0;padding:0}
 body{background:#f5f7fb;color:#111;padding-bottom:80px}
-header{background:#fff;padding:12px 15px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+header{background:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.08)}
 header img{width:220px;display:block;margin:0 auto;cursor:pointer}
-header p{font-size:13px;font-weight:bold;margin-top:6px}
-nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+nav{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-top:10px}
 nav a{padding:8px 11px;border-radius:20px;border:1px solid #0057D9;background:#fff;color:#0057D9;font-weight:bold;text-decoration:none;font-size:12px;cursor:pointer}
 nav a.active{background:#0057D9;color:#fff}
 .page{display:none;padding:15px}.page.active{display:block}
-.search input{width:100%;padding:14px 14px 14px 40px;border-radius:12px;border:1px solid #ddd}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}
-.two div{padding:18px;border-radius:14px;color:#fff;text-align:center;font-weight:bold;cursor:pointer;font-size:15px}
-.blue{background:#0057D9}.green{background:#00A651}
-h2{padding:18px 0 10px;color:#0A2A6B}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:#fff;padding:14px;border-radius:14px;cursor:pointer;display:flex;gap:10px;align-items:flex-start}
-.card b{font-size:14px}.card span{color:#00A651;font-weight:bold;display:block;margin-top:6px;font-size:15px}
+input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin-top:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;padding:14px;border-radius:14px;cursor:pointer;display:flex;gap:10px}
+.card b{font-size:14px}.card span{color:#00A651;font-weight:bold;display:block;margin-top:6px}
 .cat-row{display:flex;gap:8px;overflow-x:auto;padding:10px 0;white-space:nowrap}
-.cat-row button{padding:9px 14px;border-radius:20px;border:1px solid #0057D9;background:#fff;color:#0057D9;font-weight:bold;cursor:pointer;flex-shrink:0}
+.cat-row button{padding:9px 14px;border-radius:20px;border:1px solid #0057D9;background:#fff;color:#0057D9;font-weight:bold;cursor:pointer}
 .cat-row button.active{background:#0057D9;color:#fff}
-.how{background:#C4E0FF;border-radius:25px 25px 0 0;padding:20px;text-align:center;margin:20px -15px 0}
-.how-steps{display:flex;justify-content:space-between;margin-top:12px;font-size:12px}
-.how-steps div{flex:1}.how-steps b{display:block}
-.box{background:#fff;padding:18px;border-radius:16px;line-height:1.7;margin-top:15px}
+.box{background:#fff;padding:18px;border-radius:16px;margin-top:15px;line-height:1.7}
 .btn{width:100%;padding:14px;background:#0057D9;color:#fff;border:0;border-radius:12px;font-weight:bold;margin-top:10px;display:block;text-align:center;cursor:pointer}
 .btn2{background:#00A651}.btn-back{background:#eee;color:#111}
-input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin-top:10px}
-label{font-size:13px;font-weight:bold;display:block;margin-top:14px;color:#333}
-.terms{font-size:12px;background:#F8F9FA;padding:14px;border-radius:12px;margin-top:14px;line-height:1.6;border:1px solid #eee}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:12px;border-top:1px solid #eee}
-.bottom a{text-align:center;font-size:12px;color:#888;text-decoration:none;cursor:pointer}
-.selected-card{background:#E8FFF0;border:2px solid #00A651;padding:16px;border-radius:14px;display:flex;gap:10px;align-items:center}
-.note{background:#E8F0FF;padding:12px;border-radius:10px;font-size:13px;margin-top:10px}
-.login-wrap{max-width:420px;margin:20px auto 0;background:#fff;border-radius:22px;padding:28px 22px;box-shadow:0 8px 30px rgba(0,0,0,.08);text-align:center}
-.login-logo{width:180px;margin:0 auto}
-.login-wrap h1{font-size:24px;color:#0A2A6B;margin:10px 0 6px}
-.login-wrap p.sub{font-size:14px;color:#666;line-height:1.6}
-.ask-box{background:#F0F6FF;border:1px solid #D6E8FF;border-radius:16px;padding:20px;margin-top:20px}
-.ask-box h3{font-size:18px;color:#0A2A6B}
-.ask-box p{font-size:14px;color:#555;margin-top:6px}
-.btn-yes{background:#0057D9}.btn-no{background:#fff;color:#0057D9;border:2px solid #0057D9}
-.divider{display:flex;align-items:center;gap:12px;margin:20px 0;color:#999;font-size:12px}
-.divider:before,.divider:after{content:"";flex:1;height:1px;background:#eee}
+.bottom a{font-size:12px;color:#888;text-decoration:none;cursor:pointer}
 .order-card{background:#fff;border-radius:16px;padding:16px;margin-top:12px;border-left:5px solid #0057D9}
-.order-card.ready{border-left-color:#00A651;background:#EFFFF5}
-.order-card h3{color:#0A2A6B;font-size:16px}
-.order-card p{font-size:13px;color:#444;line-height:1.6;margin-top:6px}
-.status{display:inline-block;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:bold;margin-top:8px}
-.status-doing{background:#FFF3CD;color:#856404}
-.status-ready{background:#00A651;color:#fff}
-.profile-card{background:#E8F0FF;border-radius:16px;padding:16px;text-align:center}
 .admin-card{background:#fff;border:2px solid #FF9800;border-radius:16px;padding:16px;margin-top:12px}
-.find-box{background:#FFF8E1;border:1px solid #FFE082;border-radius:14px;padding:14px;margin-top:12px}
-.count-badge{background:#0057D9;color:#fff;padding:4px 10px;border-radius:20px;font-size:12px}
 </style>
 </head>
 <body>
-<header>
-<img src="IMG-20261105-WA5230.jpg" onclick="showPage('home')">
-<p>Kazi Yote, Mtandaoni. All Cyber Services, CBE School Work, Done Online</p>
-<nav>
-<a id="nav-home" class="active" onclick="showPage('home')">Home</a>
-<a id="nav-about" onclick="showPage('about')">About</a>
-<a id="nav-how" onclick="showPage('how')">How It Works</a>
-<a id="nav-help" onclick="showPage('help')">Help</a>
-<a id="nav-orders" onclick="showPage('orders')">My Orders</a>
-<a id="nav-login" onclick="showPage('login')">Profile</a>
-</nav>
-</header>
-
-<div id="page-home" class="page active">
-<div class="search"><input id="searchInput" placeholder="🔍 Search any service - KRA, Passport, HELB, NTSA, SHA..." oninput="renderServices()"></div>
-<div class="two"><div class="blue" onclick="showPage('orders')">🖥️ e-Cyber Services<br><span style="font-size:12px;font-weight:normal">60+ Services</span></div><div class="green" onclick="showPage('orders')">📖 CBE School Work<br><span style="font-size:12px;font-weight:normal">Grade 1-9</span></div></div>
-<div class="cat-row" id="catRowHome"></div>
-<h2>Popular Services <span class="count-badge" id="totalCount"></span></h2><div class="grid" id="servicesGrid"></div>
-<div class="box"><h3>📦 Your Orders</h3><p id="homeOrdersPreview" style="font-size:14px">No orders yet.</p><button class="btn" onclick="showPage('orders')">View My Orders →</button></div>
-<div class="how"><h3>How It Works</h3><div class="how-steps"><div>⬆️<b>Upload</b>Submit request</div><div>✅<b>We Do It</b>We handle it</div><div>✉️<b>Pay with M-Pesa</b>Pay & download</div></div></div>
-<div class="box"><h3>Why CyberKazi?</h3><p>✅ Fast - Less than 10 minutes<br>✅ Safe - Your documents are private<br>✅ Pay After Work Is Ready - M-Pesa<br>✅ Works on any phone<br>✅ We are always available</p><button class="btn" onclick="showPage('about')">Learn More →</button></div>
-<p style="text-align:center;font-size:11px;color:#ccc;margin-top:20px;cursor:pointer" onclick="showPage('admin')">Admin</p>
-</div>
-
-<div id="page-about" class="page"><div class="box"><h2>How CyberKazi Started</h2><p>CyberKazi started from a real struggle we saw every day.</p><br><p>People would wake up early, walk far to look for a cyber, only to find it closed, or full, or no power, or no network. Others would spend the whole day queuing.</p><br><p>Some lost money on transport just to go and ask for a small service like KRA PIN, HELB, or printing one paper. Students missed deadlines. Job seekers missed jobs. Parents were stressed.</p><br><p>That is why we built CyberKazi. So you don't have to walk, queue, or wait. Just order from your phone, we do the work, you pay with M-Pesa to download.</p><br><p><b>CyberKazi was built for everyone to access online services easily.</b></p><br><p><b>Kazi Yote, Mtandaoni.</b></p></div></div>
-<div id="page-how" class="page"><div class="box"><h2>How It Works - 3 Easy Steps</h2><p><b>Step 1: Order</b><br>Choose service, fill details, send order.</p><br><p><b>Step 2: We Do It</b><br>We do your work in less than 10 minutes.</p><br><p><b>Step 3: Pay & Download</b><br>Pay with M-Pesa after work is ready, then download.</p><button class="btn" onclick="showPage('orders')">Start Your Order →</button></div></div>
-<div id="page-help" class="page"><div class="box"><h2>Help</h2><p><b>How do I pay?</b><br>You pay with M-Pesa after your work is ready.</p><br><p><b>How long does it take?</b><br>Less than 10 minutes for most work. Good Conduct needs fingerprinting at DCI/Huduma after online part.</p><br><p><b>Is my document private?</b><br>Yes. Only you and CyberKazi can see your order.</p><br><p><b>For orders, payments, or problems</b><br>Use the phone number you used when ordering.</p></div></div>
-
-<div id="page-orders" class="page">
-<div class="box"><h2>📦 My Orders</h2><div class="find-box"><b>Find My Orders By Phone Number</b><p style="font-size:13px;color:#555">Type the phone you used when ordering. E.g. 0725277325</p><input id="myPhoneInput" placeholder="Enter your phone e.g. 0725277325"><button class="btn" onclick="saveMyPhone()">Show My Orders →</button><p id="myPhoneSaved" style="font-size:13px;color:green;margin-top:8px"></p></div><div id="myOrdersList"></div><button class="btn btn2" onclick="refreshOrders()">🔄 Check If My Work Is Ready</button></div>
-<div class="box"><h2>Admin - All Orders</h2><p style="font-size:13px;color:#555">All orders from all customers.</p><div id="adminOrdersList"></div></div>
-<div class="box"><h2>All Cyber Services - <span id="allCount"></span></h2><p style="font-size:14px;color:#555">Tap any service to get its real form. Use search or categories below:</p><div class="cat-row" id="catRowOrders"></div><div class="search" style="margin-top:10px"><input id="searchInput2" placeholder="🔍 Search service..." oninput="renderOrderGrid()"></div></div>
-<div class="grid" id="orderGrid"></div>
-</div>
-
-<div id="page-order-details" class="page">
-<button class="btn btn-back" onclick="showPage('orders')">← Back To Services</button>
-<div class="box"><h2 id="detailsTitle">Your Order Details</h2><div id="chosenBox" class="selected-card" style="margin-top:10px"></div><div id="serviceNote" class="note"></div></div>
-<div class="box"><h3>Fill This Form - All Required To Do Your Work</h3><div id="dynamicForm"></div>
-<p style="font-size:12px;color:#666;margin-top:14px">✅ We will do it in less than 10 minutes<br>✅ Pay after work is ready with M-Pesa<br>✅ Your information is private - Never share OTP / Password</p>
-<button class="btn btn2" onclick="sendOrder()">Send Order →</button>
-</div>
-</div>
-
-<div id="page-login" class="page">
-<div id="loginFormBox"><div class="login-wrap"><img class="login-logo" src="IMG-20261105-WA5230.jpg"><h1>Welcome to CyberKazi</h1><p class="sub">Sign in to track your orders<br>and download your work.</p><div class="ask-box"><h3>Continue with Google?</h3><p>Do you want to sign in using your Google account?<br>It is fast and secure - no password to remember.</p><button class="btn btn-yes" onclick="googleLogin()">Yes, Continue with Google →</button><button class="btn btn-no" onclick="showEmailBox()">No, Use Email Instead</button></div><div id="emailBox" style="display:none;text-align:left;margin-top:18px"><label>Email Address</label><input id="loginEmail" placeholder="you@gmail.com"><button class="btn" onclick="emailLogin()">Continue with Email →</button></div><div class="divider"><span>SECURE LOGIN</span></div><div class="terms" style="text-align:left"><input type="checkbox" checked style="width:auto"> By continuing, you agree to our <b>Terms & Privacy Policy.</b></div></div></div>
-<div id="profileBox" style="display:none"><div class="login-wrap"><img class="login-logo" src="IMG-20261105-WA5230.jpg"><div class="profile-card"><div style="font-size:48px">👤</div><h2 id="profileName" style="text-align:center;padding:0">My Profile</h2><p id="profileEmail" style="font-size:14px"></p><p style="font-size:12px;color:green">● Account Active - Saved Permanently</p></div><p style="font-size:13px;margin-top:14px">Your profile stays here even if you close the app. It only goes if you delete it yourself.</p><button class="btn" onclick="showPage('orders')">View My Orders →</button><button class="btn btn2" onclick="showPage('orders')">Place New Order →</button><button class="btn" style="background:#FF3B30" onclick="deleteProfile()">🗑️ Delete My Profile</button><button class="btn btn-back" onclick="logoutProfile()">Log Out (Keep Profile)</button></div></div>
-</div>
-
-<div id="page-admin" class="page">
-<div id="adminLoginBox" class="box" style="text-align:center"><h2>🔐 Admin Only</h2><p>Enter Admin Code</p><input id="adminCode" type="password" placeholder="Admin Code"><button class="btn" onclick="checkAdmin()">Open Admin Dashboard →</button><p style="font-size:12px;color:#888;margin-top:10px">Default Code: <b>1234</b></p></div>
-<div id="adminDashboard" style="display:none"><div class="box" style="background:#FFF3E0"><h2>👑 Admin Dashboard</h2><p id="adminStats" style="font-size:14px"></p><button class="btn btn2" onclick="renderAdmin()">🔄 Refresh</button></div><div id="adminOrdersList2"></div><button class="btn btn-back" onclick="showPage('home')">Back To Home</button></div>
-</div>
-
-<div class="bottom">
-<a onclick="showPage('home')">🏠<br>Home</a>
-<a onclick="showPage('orders')">⚙️<br>Services</a>
-<a onclick="showPage('orders')">🧾<br>Orders</a>
-<a onclick="showPage('login')">👤<br>Profile</a>
-</div>
-
+<header><img src="IMG-20261105-WA5230.jpg" onclick="showPage('home')"><p><b>Kazi Yote, Mtandaoni</b></p><nav><a id="nav-home" class="active" onclick="showPage('home')">Home</a><a id="nav-about" onclick="showPage('about')">About</a><a id="nav-how" onclick="showPage('how')">How It Works</a><a id="nav-help" onclick="showPage('help')">Help</a><a id="nav-orders" onclick="showPage('orders')">My Orders</a><a id="nav-login" onclick="showPage('login')">Profile</a></nav></header>
+<div id="page-home" class="page active"><input id="searchInput" placeholder="Search - KRA, Passport, HELB, NTSA, SHA..." oninput="renderServices()"><div class="grid" style="margin-top:15px"><div class="box" style="background:#0057D9;color:#fff;text-align:center;cursor:pointer" onclick="showPage('orders')"><b>e-Cyber Services</b><br>60+ Services</div><div class="box" style="background:#00A651;color:#fff;text-align:center;cursor:pointer" onclick="showPage('orders')"><b>CBE School Work</b><br>Grade 1-9</div></div><div class="cat-row" id="catRowHome"></div><h2>Popular Services</h2><div class="grid" id="servicesGrid"></div><div class="box"><h3>Your Orders</h3><p id="homeOrdersPreview">No orders yet.</p><button class="btn" onclick="showPage('orders')">View My Orders</button></div><p style="text-align:center;font-size:11px;color:#ccc;margin-top:20px;cursor:pointer" onclick="showPage('admin')">Admin</p></div>
+<div id="page-about" class="page"><div class="box"><h2>How CyberKazi Started</h2><p>People would walk far to look for a cyber, only to find it closed, full, no power, no network. That is why we built CyberKazi. Order from your phone, we do the work, you pay with M-Pesa to download.<br><b>Kazi Yote, Mtandaoni.</b></p></div></div>
+<div id="page-how" class="page"><div class="box"><h2>How It Works</h2><p><b>1. Order</b> Choose service.<br><b>2. We Do It</b> Less than 10 min.<br><b>3. Pay & Download</b> Pay with M-Pesa after ready.</p></div></div>
+<div id="page-help" class="page"><div class="box"><h2>Help</h2><p>Pay with M-Pesa after work is ready. Less than 10 min. Good Conduct needs fingerprinting after online part. Your document is private.</p></div></div>
+<div id="page-orders" class="page"><div class="box"><h2>My Orders</h2><input id="myPhoneInput" placeholder="Enter your phone e.g. 0725277325"><button class="btn" onclick="saveMyPhone()">Show My Orders</button><p id="myPhoneSaved"></p><div id="myOrdersList"></div><button class="btn btn2" onclick="refreshOrders()">Check If My Work Is Ready</button></div><div class="box"><h2>Admin - All Orders</h2><div id="adminOrdersList"></div></div><div class="box"><h2>All Services - <span id="allCount"></span></h2><div class="cat-row" id="catRowOrders"></div><input id="searchInput2" placeholder="Search service..." oninput="renderOrderGrid()"></div><div class="grid" id="orderGrid"></div></div>
+<div id="page-order-details" class="page"><button class="btn btn-back" onclick="showPage('orders')">Back To Services</button><div class="box"><h2 id="detailsTitle"></h2><div id="chosenBox"></div><div id="serviceNote"></div></div><div class="box"><h3>Fill This Form</h3><div id="dynamicForm"></div><button class="btn btn2" onclick="sendOrder()">Send Order</button></div></div>
+<div id="page-login" class="page"><div id="loginFormBox" class="box" style="text-align:center"><h1>Welcome to CyberKazi</h1><p>Sign in to track orders.</p><button class="btn" onclick="googleLogin()">Continue with Google</button><button class="btn" style="background:#fff;color:#0057D9;border:2px solid #0057D9" onclick="showEmailBox()">Use Email Instead</button><div id="emailBox" style="display:none"><input id="loginEmail" placeholder="you@gmail.com"><button class="btn" onclick="emailLogin()">Continue with Email</button></div></div><div id="profileBox" style="display:none" class="box"><h2 id="profileName"></h2><p id="profileEmail"></p><button class="btn" onclick="showPage('orders')">View My Orders</button><button class="btn" style="background:#FF3B30" onclick="deleteProfile()">Delete My Profile</button><button class="btn btn-back" onclick="logoutProfile()">Log Out</button></div></div>
+<div id="page-admin" class="page"><div id="adminLoginBox" class="box" style="text-align:center"><h2>Admin Only</h2><input id="adminCode" type="password" placeholder="Admin Code"><button class="btn" onclick="checkAdmin()">Open Admin</button><p>Code: <b>1234</b></p></div><div id="adminDashboard" style="display:none"><div class="box"><h2>Admin Dashboard</h2><p id="adminStats"></p><button class="btn btn2" onclick="renderAdmin()">Refresh</button></div><div id="adminOrdersList2"></div></div></div>
+<div class="bottom"><a onclick="showPage('home')">Home</a><a onclick="showPage('orders')">Services</a><a onclick="showPage('orders')">Orders</a><a onclick="showPage('login')">Profile</a></div>
 <script>
-const ADMIN_WHATSAPP="254712345678";
-const ADMIN_CODE="1234";
-let selectedService=null, currentCat="All";
+const WA="254712345678",CODE="1234";let sel=null,cat="All";
 const CATS=["All","KRA","eCitizen","NTSA","SHA & NSSF","HELB & KUCCPS","TSC & KNEC","Business","Passport & Visa","Birth & ID","Lands","Jobs & Career","School CBE","Documents & Design"];
-// DEFAULT FIELDS FOR ALL SERVICES - So every service has a real form
-const DEF=[["Full Name *","Full Name as on ID"],["ID Number *","ID Number e.g. 12345678"],["Phone Number *","Phone e.g. 0712345678"],["Email Address","Email e.g. you@gmail.com"],["Describe What You Want Done? *","Describe in detail - what exactly should we do for you?"]];
-const services=[
- // KRA - 7
-{id:"kra-pin",cat:"KRA",name:"KRA PIN Application",price:250,icon:"🪪",note:"New KRA PIN - Individual, Student PWO, Company. Email is where PIN cert is sent.",fields:[["ID Number *","ID Number"],["Date of Birth *","DOB e.g. 01/01/2000"],["Phone Number *","Phone e.g. 0712345678"],["Email Address *","Email"],["Physical Address","County, Town, Estate"],["Are you Student / Employed / Business? *","Student PWO / Employed / Business"],["Reason for PIN","For HELB / Job / Bank"]]},
-{id:"kra-returns",cat:"KRA",name:"KRA Returns Filing - Nil / Employment / Rental",price:300,icon:"📊",note:"File Nil, Employment P9, Rental, VAT returns before deadline. Avoid penalty.",fields:[["Full Name *","Full Name"],["KRA PIN *","KRA PIN e.g. A123456789X"],["Phone Number *","Phone"],["Email *","Email"],["Type of Return *","Nil / Employment P9 / Rental / VAT"],["Year *","e.g. 2025"],["Do you have P9 Form?","Yes / No - If Yes we will ask you to send it"]]},
-{id:"kra-retrieval",cat:"KRA",name:"KRA PIN Retrieval / Password Reset",price:200,icon:"🔑",note:"Forgot PIN or password? We retrieve it using ID + Email.",fields:[["Full Name *","Full Name"],["ID Number *","ID Number"],["Phone Number *","Phone"],["Email Used For KRA *","Email you used for KRA"]]},
-{id:"kra-tcc",cat:"KRA",name:"Tax Compliance Certificate (TCC)",price:400,icon:"✅",note:"TCC for tender, job, business. Must have filed returns.",fields:[["Full Name *","Full Name"],["KRA PIN *","KRA PIN"],["Phone *","Phone"],["Email *","Email"],["Reason for TCC","Tender / Job / Business"]]},
-{id:"kra-etims",cat:"KRA",name:"eTIMS Registration / Invoicing",price:400,icon:"🧾",note:"eTIMS for business - register, get invoicing app, learn to invoice.",fields:[["Business Name *","Business Name"],["KRA PIN *","Business / Personal PIN"],["Phone *","Phone"],["Email *","Email"],["Business Type","Sole Proprietor / Company / Partnership"]]},
-{id:"kra-objection",cat:"KRA",name:"KRA PIN Update / Change Email / Objection",price:250,icon:"✏️",note:"Change KRA email, phone, address, or object to assessment.",fields:[["Full Name *","Full Name"],["KRA PIN *","PIN"],["Phone *","Phone"],["What To Change? *","Change Email / Phone / Address / Objection - Describe"]]},
-{id:"kra-vat",cat:"KRA",name:"VAT Registration / VAT Returns",price:500,icon:"🏢",note:"Register for VAT or file VAT returns monthly.",fields:[["Business Name *","Business Name"],["KRA PIN *","PIN"],["Phone *","Phone"],["Email *","Email"],["Monthly Sales","Approx monthly sales"]]},
- // eCitizen - 6
-{id:"ecitizen-open",cat:"eCitizen",name:"eCitizen Account Opening / Password Reset",price:100,icon:"🔓",note:"Open eCitizen or reset password. Needed for all govt services.",fields:[["Full Name *","Full Name"],["ID Number *","ID Number"],["Phone *","Phone"],["Email *","Email"],["What Do You Want? *","Open New Account / Reset Password / Unlock"]]},
-{id:"good",cat:"eCitizen",name:"Good Conduct - Police Clearance",price:500,icon:"🛡️",note:"DCI Good Conduct on eCitizen - KSh 1,050 govt fee separate. Must go for fingerprints after.",fields:[["Full Name *","Full Name EXACTLY as on ID"],["ID Number *","ID Number"],["Date of Birth *","DOB"],["Phone *","Phone"],["Email *","Email for eCitizen"],["Reason *","Employment / Travel / Scholarship"],["Fingerprint Location *","Huduma Kisumu / DCI Nairobi / etc"]]},
-{id:"birth-cert",cat:"Birth & ID",name:"Birth Certificate Application",price:300,icon:"👶",note:"New birth cert, replacement, or late registration. For child or adult.",fields:[["Child Full Name *","Child Name"],["Date of Birth *","DOB"],["Place of Birth *","Hospital / Town"],["Father Name + ID","Father Name + ID"],["Mother Name + ID","Mother Name + ID"],["Phone *","Parent Phone"],["What Do You Want? *","New / Replacement / Late Registration"]]},
-{id:"death-cert",cat:"Birth & ID",name:"Death Certificate Application",price:300,icon:"📜",note:"Apply for death certificate via eCitizen.",fields:[["Deceased Full Name *","Name"],["Date of Death *","Date"],["Place of Death *","Place"],["Your Name + ID *","Applicant Name + ID"],["Phone *","Phone"],["Relationship","Son / Daughter / Spouse / etc"]]},
-{id:"marriage",cat:"eCitizen",name:"Marriage Registration / Certificate",price:500,icon:"💍",note:"Register marriage, book wedding date, get marriage cert.",fields:[["Husband Name + ID *","Name + ID"],["Wife Name + ID *","Name + ID"],["Phone *","Phone"],["Email","Email"],["Type *","Civil / Religious / Customary"],["Wedding Date Wanted","Date"]]},
-{id:"affidavit",cat:"eCitizen",name:"Affidavit / Commissioning / Swearing",price:300,icon:"⚖️",note:"Affidavit for name change, loss of ID, age, etc.",fields:[["Full Name *","Full Name"],["ID Number *","ID"],["Phone *","Phone"],["Type of Affidavit *","Name Change / Loss of Document / Age / etc"],["Describe *","What should affidavit say?"]]},
- // NTSA - 7
-{id:"ntsa-smart",cat:"NTSA",name:"NTSA Smart DL Application / Renewal",price:400,icon:"🚗",note:"Smart Driving Licence - New, Renew 1yr / 3yr, Replacement.",fields:[["Full Name *","Full Name"],["ID Number *","ID"],["Phone *","Phone"],["Email","Email"],["DL Number If Renewal","DL No. or Leave blank if new"],["What Do You Want? *","New Smart DL / Renew 1yr / Renew 3yr / Replace Lost"]]},
-{id:"ntsa-provisional",cat:"NTSA",name:"Provisional Driving Licence (PDL)",price:300,icon:"📝",note:"Apply for PDL to start driving school.",fields:[["Full Name *","Full Name"],["ID *","ID"],["Phone *","Phone"],["Email","Email"],["Driving School Name","School you will attend"]]},
-{id:"ntsa-test",cat:"NTSA",name:"Driving Test Booking",price:300,icon:"🎯",note:"Book driving test date at NTSA / Driving school.",fields:[["Full Name *","Full Name"],["ID *","ID"],["Phone *","Phone"],["PDL Number *","PDL No."],["Preferred Test Centre *","e.g. Kisumu / Nairobi"]]},
-{id:"ntsa-transfer",cat:"NTSA",name:"Vehicle Transfer / Logbook Transfer",price:500,icon:"🚙",note:"Transfer vehicle to new owner, get new logbook.",fields:[["Seller Name + ID *","Seller"],["Buyer Name + ID *","Buyer"],["Phone *","Buyer Phone
+const S=[
+["KRA PIN Application","KRA",250,"🪪","New KRA PIN."],
+["KRA Returns Filing","KRA",300,"📊","Nil, Employment, Rental."],
+["KRA PIN Retrieval","KRA",200,"🔑","Forgot PIN or password?"],
+["Tax Compliance Certificate","KRA",400,"✅","TCC for tender, job."],
+["eTIMS Registration","KRA",400,"🧾","eTIMS for business."],
+["KRA PIN Update","KRA",250,"✏️","Change email, phone."],
+["VAT Registration","KRA",500,"🏢","VAT registration."],
+["eCitizen Account Opening","eCitizen",100,"🔓","Open eCitizen."],
+["Good Conduct","eCitizen",500,"🛡️","DCI Good Conduct. Govt fee separate."],
+["Marriage Registration","eCitizen",500,"💍","Register marriage."],
+["Affidavit","eCitizen",300,"⚖️","Affidavit."],
+["NTSA Smart DL","NTSA",400,"🚗","Smart DL New, Renew."],
+["Provisional Driving Licence","NTSA",300,"📝","PDL."],
+["Driving Test Booking","NTSA",300,"🎯","Book test."],
+["Vehicle Transfer","NTSA",500,"🚙","Transfer vehicle."],
+["Vehicle Search","NTSA",300,"🔍","Search vehicle."],
+["PSV Badge","NTSA",400,"🚌","PSV badge."],
+["Number Plate / Logbook","NTSA",500,"🔢","New plate."],
+["SHA Registration","SHA & NSSF",200,"🏥","SHA registration."],
+["SHA Add Dependant","SHA & NSSF",200,"👨‍👩‍👧","Add dependant."],
+["SHA Card Download","SHA & NSSF",150,"💳","Download SHA card."],
+["NSSF Registration","SHA & NSSF",200,"🏦","NSSF registration."],
+["NSSF Statement","SHA & NSSF",300,"📄","NSSF statement."],
+["NHIF / SHA Migration","SHA & NSSF",200,"🔄","Migrate NHIF to SHA."],
+["HELB Loan Application","HELB & KUCCPS",400,"🎓","HELB First-time."],
+["HELB Appeal","HELB & KUCCPS",300,"📝","HELB Appeal."],
+["HELB Clearance","HELB & KUCCPS",300,"✅","HELB clearance."],
+["KUCCPS Application","HELB & KUCCPS",300,"🏫","KUCCPS placement."],
+["KUCCPS Placement Check","HELB & KUCCPS",150,"🔍","Check placement."],
+["Scholarship Application","HELB & KUCCPS",300,"💰","Scholarship."],
+["HEF Funding Application","HELB & KUCCPS",300,"🎓","HEF funding."],
+["TSC Number Application","TSC & KNEC",400,"👩‍🏫","TSC number."],
+["TSC Job Application","TSC & KNEC",300,"📋","TSC jobs."],
+["KNEC Certificate Replacement","TSC & KNEC",400,"📜","Replace KCPE/KCSE."],
+["KNEC Results","TSC & KNEC",200,"📊","KNEC results."],
+["NEMIS Registration","TSC & KNEC",250,"🧒","NEMIS."],
+["TSC Transfer","TSC & KNEC",250,"🔄","Transfer."],
+["Business Name Registration","Business",500,"🏪","Register business name."],
+["Company Registration","Business",1500,"🏢","Ltd, Partnership."],
+["Business Annual Returns","Business",500,"📅","Annual returns."],
+["M-Pesa Till / Paybill","Business",400,"📱","Till, Paybill."],
+["Business KRA PIN","Business",400,"🧾","KRA PIN for business."],
+["CRB Clearance","Business",400,"💳","CRB check."],
+["Passport Application","Passport & Visa",500,"🛂","Passport New/Renew. Govt fee separate."],
+["Temporary Passport","Passport & Visa",400,"✈️","Temporary passport."],
+["Visa Application","Passport & Visa",800,"🌍","USA, UK, Schengen, Dubai."],
+["DV Lottery","Passport & Visa",300,"🇺🇸","DV Lottery."],
+["Work Permit","Passport & Visa",800,"📋","Work permit."],
+["Flight Booking","Passport & Visa",250,"✈️","Flight, hotel."],
+["Birth Certificate","Birth & ID",300,"👶","Birth cert."],
+["Death Certificate","Birth & ID",300,"📜","Death cert."],
+["National ID Replacement","Birth & ID",300,"🪪","Replace lost ID."],
+["Huduma / Maisha Card","Birth & ID",200,"🪪","Huduma card."],
+["Land Search","Lands",500,"🏡","Land search."],
+["Land Rent / Rates","Lands",300,"💰","Pay land rent."],
+["Land Transfer","Lands",800,"📜","Land transfer."],
+["CV + Cover Letter","Jobs & Career",400,"📄","CV + Cover Letter."],
+["Online Job Application","Jobs & Career",250,"💼","We apply for you."],
+["LinkedIn / ATS CV","Jobs & Career",500,"💻","LinkedIn + ATS CV."],
+["Interview Preparation","Jobs & Career",300,"🎤","Mock interview."],
+["PSC / KDF / Police Application","Jobs & Career",300,"🇰🇪","PSC, KDF, Police."],
+["Tender / AGPO","Jobs & Career",800,"📑","Tender, AGPO."],
+["CBE Homework Grade 1-9","School CBE",200,"📚","CBE Homework."],
+["Assignment / Project","School CBE",400,"📖","Assignment."],
+["Typing / Thesis Typing","School CBE",200,"⌨️","Typing."],
+["Online Class Help","School CBE",300,"🎓","Online class."],
+["Logo Designing","Documents & Design",800,"🎨","Logo."],
+["Poster / Flyer / Banner","Documents & Design",400,"🖼️","Poster, flyer."],
+["Printing / Scanning","Documents & Design",100,"🖨️","Printing."],
+["PDF Editing","Documents & Design",200,"📄","Edit PDF."],
+["Website Setup","Documents & Design",1500,"🌐","Website."],
+["Video Editing","Documents & Design",500,"🎬","Video editing."],
+["Passport Photos","Documents & Design",200,"📸","Passport photos."],
+["Other Service - Ask Anything","Documents & Design",0,"✍️","Any other work."]
+];
+function cp(p){return (p||"").replace(/\D/g,"").slice(-9)}
+function go(){try{return JSON.parse(localStorage.getItem('ck_o')||'[]')}catch(e){return[]}}
+function so(o){localStorage.setItem('ck_o',JSON.stringify(o))}
+function gu(){try{return JSON.parse(localStorage.getItem('ck_u')||'null')}catch(e){return null}}
+function su(u){localStorage.setItem('ck_u',JSON.stringify(u));up()}
+function gm(){return localStorage.getItem('ck_p')||""}
+function saveMyPhone(){let p=document.getElementById('myPhoneInput').value;if(!p||p.length<9){alert("Type phone");return}localStorage.setItem('ck_p',p);document.getElementById('myPhoneSaved').innerText="Showing: "+p;rm();ra()}
+function up(){let u=gu();if(u){document.getElementById('loginFormBox').style.display='none';document.getElementById('profileBox').style.display='block';document.getElementById('profileName').innerText=u.email.split('@')[0];document.getElementById('profileEmail').innerText=u.email}else{document.getElementById('loginFormBox').style.display='block';document.getElementById('profileBox').style.display='none'}}
+function showPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('nav a').forEach(e=>e.classList.remove('active'));let n=document.getElementById('nav-'+p);if(n)n.classList.add('active');if(p=='orders'){let mp=gm();if(mp)document.getElementById('myPhoneInput').value=mp;rm();ra();ro()}window.scrollTo(0,0)}
+function googleLogin(){let e=prompt("Enter Gmail:","you@gmail.com");if(e){su({email:e});alert("Welcome "+e);showPage('orders')}}
+function showEmailBox(){document.getElementById('emailBox').style.display='block'}
+function emailLogin(){let e=document.getElementById('loginEmail').value;if(!e){alert("Type email");return}su({email:e});showPage('orders')}
+function logoutProfile(){localStorage.removeItem('ck_u');up();showPage('login')}
+function deleteProfile(){if(confirm("Delete profile + orders?")){localStorage.removeItem('ck_u');localStorage.removeItem('ck_o');up();rm();ra();showPage('login')}}
+function setCat(c,el){cat=c;document.querySelectorAll('.cat-row button').forEach(b=>b.classList.remove('active'));if(el)el.classList.add('active');rs();ro()}
+function rc(){let h=CATS.map(c=>`<button class="${c==cat?'active':''}" onclick="setCat('${c}',this)">${c}</button>`).join('');document.getElementById('catRowHome').innerHTML=h;document.getElementById('catRowOrders').innerHTML=h}
+function rs(){let q=(document.getElementById('searchInput').value||"").toLowerCase();let l=S.filter(s=>(cat=="All"||s[1]==cat)&&(!q||s[0].toLowerCase().includes(q)));document.getElementById('servicesGrid').innerHTML=l.slice(0,12).map((s,i)=>`<div class="card" onclick="gd(${S.indexOf(s)})"><div style="font-size:28px">${s[3]}</div><div><b>${s[0]}</b><br><span>${s[2]==0?'Ask Price':'KSh '+s[2]}</span></div></div>`).join('')}
+function ro(){let q=(document.getElementById('searchInput2')?document.getElementById('searchInput2').value:"").toLowerCase();let l=S.filter(s=>(cat=="All"||s[1]==cat)&&(!q||s[0].toLowerCase().includes(q)));document.getElementById('allCount').innerText=l.length+" / "+S.length;document.getElementById('orderGrid').innerHTML=l.map(s=>`<div class="card" onclick="gd(${S.indexOf(s)})"><div style="font-size:28px">${s[3]}</div><div><b>${s[0]}</b><br><span>${s[2]==0?'Ask Price':'KSh '+s[2]}</span></div></div>`).join('')}
+function gd(i){sel=S[i];document.getElementById('detailsTitle').innerText=sel[0];document.getElementById('chosenBox').innerHTML=`<b>${sel[3]} ${sel[0]}</b><br><span style="color:#00A651">KSh ${sel[2]}</span>`;document.getElementById('serviceNote').innerHTML="ℹ️ "+sel[4];document.getElementById('dynamicForm').innerHTML=`<label>Full Name *</label><input class="oi" placeholder="Full Name"><label>ID Number *</label><input class="oi" placeholder="ID Number"><label>Phone Number *</label><input class="oi" placeholder="Phone e.g. 0712345678"><label>Email</label><input class="oi" placeholder="Email"><label>Describe What You Want Done? *</label><textarea class="oi" placeholder="Describe in detail"></textarea>`;showPage('order-details')}
+function sendOrder(){let ins=document.querySelectorAll('.oi');let full=[];let phone="";ins.forEach((el,ix)=>{if(el.value){full.push(el.value);if(ix==2)phone=el.value}});let u=gu();let o=go();let n={service:sel[0],icon:sel[3],price:sel[2],status:"Doing",time:Date.now(),date:new Date().toLocaleString(),details:full.join(' | '),customer:u?u.email:'Guest',phone:phone};o.push(n);so(o);if(phone)localStorage.setItem('ck_p',phone);window.open("https://wa.me/"+WA+"?text="+encodeURIComponent("NEW ORDER: "+sel[0]+"\nPhone: "+phone+"\n"+full.join("\n")));alert("Thank you! Order saved: "+phone);showPage('orders')}
+function rm(){let o=go();let mp=cp(gm());let box=document.getElementById('myOrdersList');let home=document.getElementById('homeOrdersPreview');if(!o.length){box.innerHTML='<p>No orders yet.</p>';home.innerText='No orders yet.';return}let mine=!mp?o:o.filter(x=>cp(x.phone)==mp);if(!mine.length){box.innerHTML='<p>No orders for '+gm()+'</p>';return}box.innerHTML=mine.slice().reverse().map(x=>`<div class="order-card"><h3>${x.icon} ${x.service} - ${x.phone||''}</h3><p>${x.details}<br><b>KSh ${x.price}</b> | ${x.date}</p><b>${x.status}</b></div>`).join('')}
+function ra(){let o=go();let box=document.getElementById('adminOrdersList');if(!o.length){box.innerHTML='<p>No orders yet.</p>';return}box.innerHTML=o.slice().reverse().map(x=>{let idx=o.indexOf(x);return `<div class="admin-card"><h3>${x.service} - ${x.phone||''}</h3><p>${x.details}<br><b>KSh ${x.price}</b> | ${x.date}</p><button class="btn btn2" onclick="am(${idx})">Mark as Ready</button></div>`}).join('')}
+function refreshOrders(){let o=go();o.forEach(x=>{if(Math.floor((Date.now()-x.time)/60000)>=10)x.status='Ready'});so(o);rm();ra();alert("Checked! "+o.length+" orders")}
+function checkAdmin(){if(document.getElementById('adminCode').value==CODE){document.getElementById('adminLoginBox').style.display='none';document.getElementById('adminDashboard').style.display='block';rAd()}else alert("Wrong Code")}
+function rAd(){let o=go();document.getElementById('adminStats').innerHTML="Total: "+o.length;document.getElementById('adminOrdersList2').innerHTML=document.getElementById('adminOrdersList').innerHTML}
+function renderAdmin(){rAd()}
+function am(idx){let o=go();o[idx].status='Ready';so(o);rm();ra();rAd();alert("Marked READY.")}
+rc();rs();ro();rm();ra();up();
+</script>
+</body>
+                                                                                                                                                                                                                                                                                                                                                                                                          </html>
