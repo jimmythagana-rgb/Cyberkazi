@@ -124,4 +124,46 @@ label{font-size:13px;font-weight:bold;display:block;margin-top:14px;color:#333}
 <div id="profileBox" style="display:none">
 <div class="login-wrap">
 <img class="login-logo" src="IMG-20261105-WA5230.jpg">
-<div class="profile-card"><div style="font-size:48px">👤</div><h2 id="profileName" style="text-align:center;padding:0">My Profile</h2><p id="profileEmail" style="font-size:14px"></p><p style="font-size:12px;color:green">● Account Active - Saved Permanently</p></div
+<div class="profile-card"><div style="font-size:48px">👤</div><h2 id="profileName" style="text-align:center;padding:0">My Profile</h2><p id="profileEmail" style="font-size:14px"></p><p style="font-size:12px;color:green">● Account Active - Saved Permanently</p></div>
+<p style="font-size:13px;margin-top:14px">Your profile stays here even if you close the app or switch off your phone. It will only go away if you delete it yourself.</p>
+<button class="btn" onclick="showPage('orders')">View My Orders →</button>
+<button class="btn btn2" onclick="showPage('orders')">Place New Order →</button>
+<button class="btn" style="background:#FF3B30" onclick="deleteProfile()">🗑️ Delete My Profile</button>
+<button class="btn btn-back" onclick="logoutProfile()">Log Out (Keep Profile)</button>
+</div>
+</div>
+</div>
+
+<div class="bottom">
+<a onclick="showPage('home')">🏠<br>Home</a>
+<a onclick="showPage('orders')">⚙️<br>Services</a>
+<a onclick="showPage('orders')">🧾<br>Orders</a>
+<a onclick="showPage('login')">👤<br>Profile</a>
+</div>
+
+<script>
+let selectedService=null;
+// --- SAVE / LOAD ---
+function getOrders(){try{return JSON.parse(localStorage.getItem('cyberkazi_orders')||'[]')}catch(e){return[]}}
+function saveOrders(o){localStorage.setItem('cyberkazi_orders',JSON.stringify(o))}
+function getUser(){try{return JSON.parse(localStorage.getItem('cyberkazi_user')||'null')}catch(e){return null}}
+function saveUser(u){localStorage.setItem('cyberkazi_user',JSON.stringify(u));updateProfileUI()}
+function updateProfileUI(){let u=getUser();if(u){document.getElementById('loginFormBox').style.display='none';document.getElementById('profileBox').style.display='block';document.getElementById('profileName').innerText=u.email.split('@')[0];document.getElementById('profileEmail').innerText=u.email}else{document.getElementById('loginFormBox').style.display='block';document.getElementById('profileBox').style.display='none'}}
+function showPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('nav a').forEach(e=>e.classList.remove('active'));let n=document.getElementById('nav-'+p);if(n)n.classList.add('active');if(p=='orders')renderMyOrders();window.scrollTo(0,0)}
+function googleLogin(){let name=prompt("Continue with Google\n\nEnter your Gmail to continue:","you@gmail.com");if(name){saveUser({email:name,method:"Google",date:new Date().toLocaleString()});alert("Welcome to CyberKazi!\nSigned in as: "+name+"\nYour profile is saved permanently.");showPage('orders')}}
+function showEmailBox(){document.getElementById('emailBox').style.display='block';document.getElementById('loginEmail').focus()}
+function emailLogin(){let e=document.getElementById('loginEmail').value;if(!e){alert("Please type your email first");return}saveUser({email:e,method:"Email",date:new Date().toLocaleString()});alert("Welcome! Signed in as "+e+"\nYour profile is saved permanently.");showPage('orders')}
+function logoutProfile(){if(confirm("Log out? Your profile and orders will still be saved.")){localStorage.removeItem('cyberkazi_user');updateProfileUI();showPage('login')}}
+function deleteProfile(){if(confirm("Delete your profile AND all your orders permanently? This cannot be undone.")){localStorage.removeItem('cyberkazi_user');localStorage.removeItem('cyberkazi_orders');updateProfileUI();renderMyOrders();alert("Profile deleted.");showPage('login')}}
+// --- ORDERS ---
+function renderMyOrders(){let orders=getOrders();let box=document.getElementById('myOrdersList');let home=document.getElementById('homeOrdersPreview');if(!orders.length){box.innerHTML='<p style="font-size:14px;color:#777;margin-top:10px">No orders yet.<br>Choose a service below to place your first order.</p>';home.innerText='No orders yet. Place your first order below.';return}
+let html="";orders.slice().reverse().forEach((o,i)=>{let realIndex=orders.length-1-i;let isReady=o.status=='Ready';html+=`<div class="order-card ${isReady?'ready':''}"><h3>${o.icon} ${o.service}</h3><p><b>Order No:</b> CK-${1000+realIndex}<br><b>Price:</b> ${o.price==0?'We will tell you':'KSh '+o.price}<br><b>Date:</b> ${o.date}<br><b>Details:</b> ${o.details||'See form'}</p><span class="status ${isReady?'status-ready':'status-doing'}">${isReady?'✅ READY - Pay & Download':'⏳ DOING YOUR WORK... Less than 10 min'}</span>${isReady?`<button class="btn btn2" onclick="payOrder(${realIndex})">Pay with M-Pesa & Download</button>`:`<button class="btn btn-back" onclick="checkOrder(${realIndex})">Check Status</button>`}<button class="btn btn-back" onclick="deleteOrder(${realIndex})">Delete This Order</button></div>`});box.innerHTML=html;let last=orders[orders.length-1];home.innerHTML=`Last Order: <b>${last.service}</b> - ${last.status=='Ready'?'✅ READY':'⏳ Doing Your Work...'}`}
+function checkOrder(idx){let orders=getOrders();let o=orders[idx];let mins=Math.floor((Date.now()-o.time)/60000);if(mins>=1){o.status='Ready';saveOrders(orders);renderMyOrders();alert("Good news! Your work is READY!\nPay with M-Pesa to download.")}else{alert("Still doing your work...\nPlease wait a few minutes. We are working on: "+o.service+"\nTime passed: "+mins+" min")}}
+function refreshOrders(){let orders=getOrders();orders.forEach(o=>{let mins=Math.floor((Date.now()-o.time)/60000);if(mins>=10)o.status='Ready'});saveOrders(orders);renderMyOrders();alert("Checked! "+orders.length+" order(s) found.")}
+function payOrder(idx){alert("Pay with M-Pesa\n\nOrder: "+getOrders()[idx].service+"\nPay after work is ready. Then your download will start.");}
+function deleteOrder(idx){if(confirm("Delete this order?")){let o=getOrders();o.splice(idx,1);saveOrders(o);renderMyOrders()}}
+const services=[
+{id:"kra",name:"KRA PIN Application",price:250,icon:"🪪",note:"KRA iTax: ID + DOB fills your name. Choose PWO if student with no income. Email is where PIN certificate is sent.",fields:[["ID Number *","ID Number e.g. 12345678"],["Date of Birth *","Date of Birth as on ID e.g. 01/01/2000"],["Phone Number *","Phone Number e.g. 0712345678"],["Email Address *","Email Address - KRA will send PIN here"],["Physical Address","County, Town, Estate / Street e.g. Kisumu, Milimani"],["Postal Address","P.O Box + Postal Code + Town e.g. P.O Box 123, Kisumu 40100"],["Are you Student / Employed / Business? *","e.g. Student - PWO / Employed / Business / Unemployed"],["Employer PIN - If Employed","Employer KRA PIN - Leave blank if student"],["Business Reg No. - If Business","Business Registration No. - Leave blank if not business"],["Reason for PIN","e.g. For HELB / For Job / For Bank"]]},
+{id:"cbe",name:"CBE Homework Grade 1-9",price:200,icon:"📚",note:"CBE ONLY - No names needed. Just tell us what work to do.",fields:[["Grade / Class *","Grade e.g. Grade 5 / Grade 7 / PP2"],["Subject *","Subject e.g. Mathematics, English, Science, Kiswahili, CRE"],["What Is The Assignment / What Do You Want Done? *","Paste or type full question here. e.g. Do page 45 Q1-10..."],["When Is It Needed? (Deadline)","e.g. Today / Tomorrow morning"],["Phone Number For Sending Work *","Phone / WhatsApp e.g. 0712345678"],["Any Photo / Extra Note?","Describe photo if you have one, or any instruction"]]},
+{id:"cv",name:"CV + Cover Letter",price:400,icon:"📄",note:"We make a professional CV + 1-page Cover Letter for the exact job you want.",fields:[["Full Name *","Your Full Name as on ID"],["Phone Number *","Phone e.g. 0712345678"],["Email Address *","Email e.g. you@gmail.com"],["Physical Address / Location","County + Town e.g. Kisumu"],["Job You Are Applying For *","Job Title + Company e.g. Shop Attendant at Naivas"],["Education *","School / College / University + Year + Grade e.g. Form 4, B- 2022"],["Work / Volunteer Experience","Where you worked, what you did, dates"],["Skills","e.g. Computer, Customer Service, Driving - License?"],["Referees (2)","Name + Phone of 2 referees, or write 'To be provided'"],["Anything Else To Add?","Achievements, certificates, languages"]]},
+{id:"helb",name:"HELB Application",price:400,icon:"🎓",note:"HELB / HEF First-Time: Need KCPE + KCSE, Parents + 2 Guarantors, Bank/M-Pesa in YOUR name.",fields:[["Full Name *","Full Name as on ID"],["ID Number / KCSE Index If No ID *","ID Number or KCSE Index"],["KRA PIN *","Your KRA PIN e.g. A123456789X"],["KCPE Index No. + Year *","KCPE Index e.g. 12345678901 / 2021"],["KCSE Index No. + Year *","KCSE Index e.g. 12345678901 / 2025"],["Phone Number *","Phone registered in YOUR name e.g. 0712345678"],["Email Address *","Email e.g. you@gmail.com"],["Institution Name *","University / College / TVET e.g. Maseno University"],["Admission Number *","Admission No. from admission letter"],["Course *","Course e.g. BSc IT / Diploma in Nursing"],["Bank Details OR M-Pesa Number *","Bank Name + Account OR M-Pesa No. in YOUR name"],["Father / Guardian - ID + Phone","Father ID No. + Phone No."],["Mother / Guardian - ID + Phone","Mother ID No. + Phone No."],["Guarantor 1 - ID + Phone *","Guarantor 
