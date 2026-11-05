@@ -29,6 +29,7 @@ h2{padding:18px 0 10px;color:#0A2A6B}.grid{display:grid;grid-template-columns:1f
 .btn2{background:#00A651}.btn-back{background:#eee;color:#111}
 input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin-top:10px}
 label{font-size:13px;font-weight:bold;display:block;margin-top:14px;color:#333}
+.small{font-size:12px;color:#666;font-weight:normal}
 .terms{font-size:12px;background:#FFF3CD;padding:12px;border-radius:10px;margin-top:12px;line-height:1.6}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:12px;border-top:1px solid #eee}
 .bottom a{text-align:center;font-size:12px;color:#888;text-decoration:none;cursor:pointer}
@@ -50,7 +51,6 @@ label{font-size:13px;font-weight:bold;display:block;margin-top:14px;color:#333}
 </nav>
 </header>
 
-<!-- HOME -->
 <div id="page-home" class="page active">
 <div class="search"><input id="searchInput" placeholder="🔍 What work do you want done?" oninput="renderServices()"></div>
 <div class="two"><div class="blue" onclick="showPage('orders')">🖥️ e-Cyber Services</div><div class="green" onclick="showPage('orders')">📖 CBE School Work</div></div>
@@ -59,38 +59,32 @@ label{font-size:13px;font-weight:bold;display:block;margin-top:14px;color:#333}
 <div class="box"><h3>Why CyberKazi?</h3><p>✅ Fast - Less than 10 minutes<br>✅ Safe - Your documents are private<br>✅ Pay After Work Is Ready - M-Pesa<br>✅ Works on any phone<br>✅ We are always available</p><button class="btn" onclick="showPage('about')">Learn More About Us →</button></div>
 </div>
 
-<!-- ABOUT -->
 <div id="page-about" class="page">
 <div class="box"><h2>How CyberKazi Started</h2><p>CyberKazi started from a real struggle we saw every day.</p><br><p>People would wake up early in the morning, walk far to look for a cyber, only to find it closed, or full, or no power, or no network. Others would spend the whole day queuing, waiting for their turn, while their work, school, or business was waiting.</p><br><p>Some people lost money on transport just to go and ask for a small service like KRA PIN, HELB, or printing one paper. Students missed deadlines because their assignment was not typed on time. Job seekers missed jobs because their CV was not ready. Parents were stressed because school work was piling up.</p><br><p>We saw that pain, and we asked ourselves - why should someone walk, queue, and waste a whole day for work that can be done on a phone in less than 10 minutes?</p><br><p>That is why we built CyberKazi. So that you don't have to walk. You don't have to queue. You don't have to wait. You just stay where you are, order from your phone, we do the work for you, and you pay with M-Pesa to download it.</p><br><p><b>CyberKazi was built for everyone to access online services easily.</b></p><br><p><b>Kazi Yote, Mtandaoni.</b></p></div>
 </div>
 
-<!-- HOW -->
 <div id="page-how" class="page">
 <div class="box"><h2>How It Works - 3 Easy Steps</h2><p><b>Step 1: Order</b><br>Choose service, fill details, send order.</p><br><p><b>Step 2: We Do It</b><br>We do your work in less than 10 minutes.</p><br><p><b>Step 3: Pay & Download</b><br>Pay with M-Pesa after work is ready, then download.</p><button class="btn" onclick="showPage('orders')">Start Your Order →</button></div>
 </div>
 
-<!-- HELP -->
 <div id="page-help" class="page">
-<div class="box"><h2>Help</h2><p><b>How do I pay?</b><br>You pay with M-Pesa after your work is ready.</p><br><p><b>How long does it take?</b><br>Less than 10 minutes.</p><br><p><b>Is my document private?</b><br>Yes. Only you and CyberKazi can see your order.</p><br><p><b>For orders, payments, or problems</b><br>Use the phone number you used when ordering. CyberKazi is always available.</p></div>
+<div class="box"><h2>Help</h2><p><b>How do I pay?</b><br>You pay with M-Pesa after your work is ready.</p><br><p><b>How long does it take?</b><br>Less than 10 minutes for most work. Good Conduct needs fingerprinting at DCI/Huduma after online part.</p><br><p><b>Is my document private?</b><br>Yes. Only you and CyberKazi can see your order.</p><br><p><b>For orders, payments, or problems</b><br>Use the phone number you used when ordering. CyberKazi is always available.</p></div>
 </div>
 
-<!-- ORDERS - CHOOSE -->
 <div id="page-orders" class="page">
-<div class="box"><h2>Choose A Service</h2><p style="font-size:14px;color:#555">Tap any service to continue to its form:</p></div>
+<div class="box"><h2>Choose A Service</h2><p style="font-size:14px;color:#555">Tap any service to get its real form:</p></div>
 <div class="grid" id="orderGrid"></div>
 </div>
 
-<!-- ORDER DETAILS - SMART FORM -->
 <div id="page-order-details" class="page">
 <button class="btn btn-back" onclick="showPage('orders')">← Back To Services</button>
 <div class="box"><h2 id="detailsTitle">Your Order Details</h2><div id="chosenBox" class="selected-card" style="margin-top:10px"></div><div id="serviceNote" class="note"></div></div>
-<div class="box"><h3>Fill This Form</h3><div id="dynamicForm"></div>
-<p style="font-size:12px;color:#666;margin-top:14px">✅ We will do it in less than 10 minutes<br>✅ Pay after work is ready with M-Pesa<br>✅ Your information is private</p>
+<div class="box"><h3>Fill This Form - All Required To Do Your Work</h3><div id="dynamicForm"></div>
+<p style="font-size:12px;color:#666;margin-top:14px">✅ We will do it in less than 10 minutes<br>✅ Pay after work is ready with M-Pesa<br>✅ Your information is private - Never share OTP / Password</p>
 <button class="btn btn2" onclick="sendOrder()">Send Order →</button>
 </div>
 </div>
 
-<!-- LOGIN -->
 <div id="page-login" class="page">
 <div class="box"><h2>Welcome to CyberKazi</h2><p>Login to track your orders.</p><input placeholder="Your Full Name"><input placeholder="Phone Number e.g. 0712345678"><input type="password" placeholder="Create Password"><div class="terms"><input type="checkbox" style="width:auto"> <b>By continuing, you agree to CyberKazi Terms and Conditions.</b><br>Your documents and personal information are kept private. Only you and CyberKazi can see your order. You only pay after your work is ready.</div><button class="btn" onclick="showPage('orders')">Continue to CyberKazi</button></div>
 </div>
@@ -105,22 +99,85 @@ label{font-size:13px;font-weight:bold;display:block;margin-top:14px;color:#333}
 <script>
 let selectedService=null;
 function showPage(p){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelectorAll('nav a').forEach(e=>e.classList.remove('active'));let n=document.getElementById('nav-'+p);if(n)n.classList.add('active');window.scrollTo(0,0)}
-
 const services=[
-{id:"kra",name:"KRA PIN Application",price:250,icon:"🪪",note:"For new KRA PIN or retrieving your PIN. Have your ID ready.",fields:[["Full Name","Your Full Name e.g. John Kamau"],["ID Number","ID Number e.g. 12345678"],["Date of Birth","Date of Birth e.g. 01/01/2000"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address e.g. john@gmail.com"]]},
-{id:"cbe",name:"CBE Homework Grade 1-9",price:200,icon:"📚",note:"For CBE homework, assignments and projects. Tell us the subject and class.",fields:[["Parent Name","Parent / Guardian Name"],["Learner Name","Learner Full Name"],["Grade / Class","Grade e.g. Grade 5"],["Subject","Subject e.g. Mathematics, English, Science"],["School Name","School Name"],["Phone Number","Phone Number e.g. 0712345678"],["Homework Details","Describe homework - What is the question?"]]},
-{id:"cv",name:"CV + Cover Letter",price:400,icon:"📄",note:"We will make a professional CV for you. Tell us your education and work.",fields:[["Full Name","Your Full Name"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address"],["Education Level","Education e.g. Form 4, Diploma, Degree"],["Work Experience","Work Experience - Where have you worked?"],["Job You Want","What job are you applying for?"]]},
-{id:"helb",name:"HELB Application",price:400,icon:"🎓",note:"For HELB first time or subsequent application. Have KCSE index and admission ready.",fields:[["Full Name","Full Name as on ID"],["ID Number","ID Number"],["KCSE Index Number","KCSE Index e.g. 12345678901 / Year"],["Institution Name","University / College Name"],["Admission Number","Admission Number"],["Course","Course e.g. BSc IT"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address"],["Parent / Guardian ID","Parent / Guardian ID Number"]]},
-{id:"good",name:"Good Conduct",price:500,icon:"🛡️",note:"For Certificate of Good Conduct application on eCitizen.",fields:[["Full Name","Full Name as on ID"],["ID Number","ID Number"],["Phone Number","Phone Number e.g. 0712345678"],["Email Address","Email Address"],["eCitizen Account","Do you have eCitizen? Yes / No"],["County","County e.g. Kisumu"]]},
-{id:"logo",name:"Logo Designing",price:800,icon:"🎨",note:"We design a beautiful logo for your business in less than 10 minutes.",fields:[["Business Name","Business / Brand Name"],["What Business Do You Do?","What does your business do?"],["Colours You Like","Colours you like e.g. Blue, Green"],["Phone Number","Phone Number e.g. 0712345678"],["Other Ideas","Any idea for your logo?"]]},
-{id:"other",name:"Other Service",price:0,icon:"✍️",note:"Write any other work you want us to do.",fields:[["What Work Do You Want?","e.g. Type my assignment, Apply for passport..."],["Your Full Name","Your Full Name"],["Phone Number","Phone Number e.g. 0712345678"],["Describe Your Work","Describe in detail what you want"]]}
+{id:"kra",name:"KRA PIN Application",price:250,icon:"🪪",note:"KRA iTax: ID + DOB fills your name. Choose PWO if student with no income. Email is where PIN certificate is sent.",fields:[
+["ID Number *","ID Number e.g. 12345678"],
+["Date of Birth *","Date of Birth as on ID e.g. 01/01/2000"],
+["Phone Number *","Phone Number e.g. 0712345678"],
+["Email Address *","Email Address - KRA will send PIN here"],
+["Physical Address","County, Town, Estate / Street e.g. Kisumu, Milimani"],
+["Postal Address","P.O Box + Postal Code + Town e.g. P.O Box 123, Kisumu 40100"],
+["Are you Student / Employed / Business? *","e.g. Student - PWO / Employed / Business / Unemployed"],
+["Employer PIN - If Employed","Employer KRA PIN - Leave blank if student"],
+["Business Reg No. - If Business","Business Registration No. - Leave blank if not business"],
+["Reason for PIN","e.g. For HELB / For Job / For Bank"] ]},
+{id:"cbe",name:"CBE Homework Grade 1-9",price:200,icon:"📚",note:"CBE ONLY - No names needed. Just tell us what work to do.",fields:[
+["Grade / Class *","Grade e.g. Grade 5 / Grade 7 / PP2"],
+["Subject *","Subject e.g. Mathematics, English, Science, Kiswahili, CRE"],
+["What Is The Assignment / What Do You Want Done? *","Paste or type full question here. e.g. Do page 45 Q1-10..."],
+["When Is It Needed? (Deadline)","e.g. Today / Tomorrow morning"],
+["Phone Number For Sending Work *","Phone / WhatsApp e.g. 0712345678"],
+["Any Photo / Extra Note?","Describe photo if you have one, or any instruction"] ]},
+{id:"cv",name:"CV + Cover Letter",price:400,icon:"📄",note:"We make a professional CV + 1-page Cover Letter for the exact job you want.",fields:[
+["Full Name *","Your Full Name as on ID"],
+["Phone Number *","Phone e.g. 0712345678"],
+["Email Address *","Email e.g. you@gmail.com"],
+["Physical Address / Location","County + Town e.g. Kisumu"],
+["Job You Are Applying For *","Job Title + Company e.g. Shop Attendant at Naivas"],
+["Education *","School / College / University + Year + Grade e.g. Form 4, B- 2022"],
+["Work / Volunteer Experience","Where you worked, what you did, dates"],
+["Skills","e.g. Computer, Customer Service, Driving - License?"],
+["Referees (2)","Name + Phone of 2 referees, or write 'To be provided'"],
+["Anything Else To Add?","Achievements, certificates, languages"] ]},
+{id:"helb",name:"HELB Application",price:400,icon:"🎓",note:"HELB / HEF First-Time: Need KCPE + KCSE, Parents + 2 Guarantors, Bank/M-Pesa in YOUR name. No printing needed now.",fields:[
+["Full Name *","Full Name as on ID"],
+["ID Number / KCSE Index If No ID *","ID Number or KCSE Index"],
+["KRA PIN *","Your KRA PIN e.g. A123456789X"],
+["KCPE Index No. + Year *","KCPE Index e.g. 12345678901 / 2021"],
+["KCSE Index No. + Year *","KCSE Index e.g. 12345678901 / 2025"],
+["Phone Number *","Phone registered in YOUR name e.g. 0712345678"],
+["Email Address *","Email e.g. you@gmail.com"],
+["Institution Name *","University / College / TVET e.g. Maseno University"],
+["Admission Number *","Admission No. from admission letter"],
+["Course *","Course e.g. BSc IT / Diploma in Nursing"],
+["Bank Details OR M-Pesa Number *","Bank Name + Account OR M-Pesa No. in YOUR name"],
+["Father / Guardian - ID + Phone","Father ID No. + Phone No."],
+["Mother / Guardian - ID + Phone","Mother ID No. + Phone No."],
+["Guarantor 1 - ID + Phone *","Guarantor 1 ID + Phone - Can be parent"],
+["Guarantor 2 - ID + Phone *","Guarantor 2 ID + Phone - Can be parent"],
+["Parent Deceased? / Sponsored?","If parent deceased write YES + we will ask for death cert. If sponsored in secondary write YES"] ]},
+{id:"good",name:"Good Conduct",price:500,icon:"🛡️",note:"DCI Police Clearance on eCitizen - KSh 1,050 govt fee paid separately. After online part, you MUST go for fingerprints with ID + C24 + Invoice.",fields:[
+["Full Name *","Full Name EXACTLY as on ID"],
+["ID Number *","ID Number"],
+["Date of Birth *","Date of Birth e.g. 01/01/2000"],
+["Phone Number *","Phone e.g. 0712345678"],
+["Email Address *","Email for eCitizen"],
+["Do You Have eCitizen Account? *","Yes / No - If No, we create for you"],
+["eCitizen Username / Password?","Only if you want us to apply - Never share OTP. If unsure write 'Create for me'"],
+["Reason For Certificate *","e.g. Employment / Travel / Scholarship / Professional Registration"],
+["Fingerprint Location You Prefer *","e.g. Huduma Centre Kisumu / DCI HQ Nairobi / DCI Kisumu"],
+["County / Town","Your County e.g. Kisumu"] ]},
+{id:"logo",name:"Logo Designing",price:800,icon:"🎨",note:"Logo Brief: Tell us your business clearly so we design it right first time - no endless revisions.",fields:[
+["Business / Brand Name *","Exact spelling e.g. CyberKazi"],
+["What Does Your Business Do? *","One sentence e.g. We do online cyber services"],
+["Slogan / Tagline - If Any","Slogan to put on logo e.g. Kazi Yote, Mtandaoni - or None"],
+["Colours You Like *","Colours e.g. Blue + Green / Black + Gold / Any"],
+["Colours / Symbols To AVOID","What you don't want e.g. No red, No cross"],
+["Where Will Logo Be Used? *","e.g. WhatsApp, Facebook, Shop Sign, T-shirt"],
+["Phone Number *","Phone e.g. 0712345678"],
+["Any Example / Idea?","Describe logo you like, or write 'Designer to decide'"] ]},
+{id:"other",name:"Other Service",price:0,icon:"✍️",note:"Any other work - just describe it well.",fields:[
+["What Work Do You Want Done? *","e.g. Type my assignment, Apply for passport, NTSA, SHA, etc."],
+["Your Full Name","Your Full Name"],
+["Phone Number *","Phone e.g. 0712345678"],
+["Describe In Detail","Describe all details we need to do it"]]
+}
 ];
-
 function renderServices(){let q=document.getElementById('searchInput').value.toLowerCase();let list=services.filter(s=>!q||s.name.toLowerCase().includes(q));document.getElementById('servicesGrid').innerHTML=list.map(s=>`<div class="card" onclick="goToDetails('${s.id}')"><div style="font-size:28px">${s.icon}</div><div><b>${s.name}</b><span>${s.price==0?'Write what you want':'KSh '+s.price}</span></div></div>`).join('')}
 function renderOrderGrid(){document.getElementById('orderGrid').innerHTML=services.map(s=>`<div class="card" onclick="goToDetails('${s.id}')"><div style="font-size:28px">${s.icon}</div><div><b>${s.name}</b><span>${s.price==0?'Write what you want':'KSh '+s.price}</span></div></div>`).join('')}
-function goToDetails(id){selectedService=services.find(s=>s.id===id);document.getElementById('detailsTitle').innerText=selectedService.name;document.getElementById('chosenBox').innerHTML=`<div style="font-size:30px">${selectedService.icon}</div><div><b>${selectedService.name}</b><br><span style="color:#00A651;font-weight:bold">${selectedService.price==0?'Price - We will tell you':'KSh '+selectedService.price}</span></div>`;document.getElementById('serviceNote').innerHTML="ℹ️ "+selectedService.note;let html="";selectedService.fields.forEach(f=>{let isTextArea=f[0].toLowerCase().includes("describe")||f[0].toLowerCase().includes("details")||f[0].toLowerCase().includes("experience")||f[0].toLowerCase().includes("ideas");html+=`<label>${f[0]}</label>`+(isTextArea?`<textarea placeholder="${f[1]}"></textarea>`:`<input placeholder="${f[1]}">`)});document.getElementById('dynamicForm').innerHTML=html;showPage('order-details')}
-function sendOrder(){alert("Thank you!\nOrder received: "+selectedService.name+"\nWe will do it in less than 10 minutes.\nWe will call you on your phone number.");showPage('home')}
+function goToDetails(id){selectedService=services.find(s=>s.id===id);document.getElementById('detailsTitle').innerText=selectedService.name;document.getElementById('chosenBox').innerHTML=`<div style="font-size:30px">${selectedService.icon}</div><div><b>${selectedService.name}</b><br><span style="color:#00A651;font-weight:bold">${selectedService.price==0?'Price - We will tell you':'KSh '+selectedService.price}</span></div>`;document.getElementById('serviceNote').innerHTML="ℹ️ "+selectedService.note;let html="";selectedService.fields.forEach(f=>{let isArea=f[0].toLowerCase().includes("describe")||f[0].toLowerCase().includes("assignment")||f[0].toLowerCase().includes("experience")||f[0].toLowerCase().includes("education")||f[0].toLowerCase().includes("what")||f[0].toLowerCase().includes("anything");html+=`<label>${f[0]}</label>`+(isArea?`<textarea placeholder="${f[1]}"></textarea>`:`<input placeholder="${f[1]}">`)});document.getElementById('dynamicForm').innerHTML=html;showPage('order-details')}
+function sendOrder(){alert("Thank you!\nOrder received: "+selectedService.name+"\nWe will do it in less than 10 minutes.\nWe will contact you on your phone number.");showPage('home')}
 renderServices();renderOrderGrid();
 </script>
 </body>
-                                                                                          </html>
+  </html>
